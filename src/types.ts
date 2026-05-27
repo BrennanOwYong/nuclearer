@@ -64,10 +64,13 @@ export interface ReactorModel {
   citation: Citation;         // real spec-sheet source
 }
 
-// ---- Analysis ----
+// ---- Analysis: site-finder model ----
+// The platform takes (region + reactor) and FINDS the land: it filters a prepared
+// pool of candidate sites by the reactor's design envelope, then ranks + reasons live.
 export type Verdict = 'pass' | 'caution' | 'fail';
 export type FrictionCategory = 'grid' | 'cooling' | 'permits' | 'community' | 'logistics' | 'hazards';
 export type Pathway = 'greenfield' | 'coal-repower';
+export type SiteKind = 'named' | 'greenfield'; // reuse a known site vs unused land
 
 export interface MatrixRow {
   constraint: string;
@@ -76,12 +79,57 @@ export interface MatrixRow {
   citationIds: string[];
 }
 
-export interface AnalysisResult {
-  matrix: MatrixRow[];
-  frictionScores: Record<FrictionCategory, number>; // each 0..1
+// Prepared candidate-land attributes (the cheap source-layer values, F3b data).
+export interface SiteAttributes {
+  availableFootprintHectares: number;
+  coolingSource: string;        // e.g. "river: Hams Fork", "coastal", "dry/air-cooled only", "none on-site"
+  waterAvailability: 'abundant' | 'limited' | 'none';
+  gridDistanceKm: number;       // to nearest suitable transmission
+  populationDensity: 'low' | 'medium' | 'high';
+  hazards: string[];            // e.g. ["seismic-low","flood-moderate"]
+  landStatus: string;           // e.g. "retiring coal (brownfield)", "BLM federal land", "crown land"
+  protectedAreaFlag: boolean;
+}
+
+// A prepared candidate site in the pool (named brownfield OR greenfield zone).
+export interface CandidateSite {
+  id: string;
+  country: string;              // ISO alpha-3
+  regionId: string;             // iso_3166_2 of the parent admin-1
+  name: string;
+  kind: SiteKind;
+  lat: number;
+  lng: number;
+  attributes: SiteAttributes;
+  suitableTechnologies: ReactorTechnology[]; // which reactor families this land fits
+  citationIds: string[];        // into corpus + source-layer citations
   confidence: Confidence;
+}
+
+// Live per-site screening result (reactor envelope vs site attributes vs law).
+export interface SiteScreening {
+  siteId: string;
+  siteName: string;
+  kind: SiteKind;
+  lat: number;
+  lng: number;
+  rank: number;                 // 1 = best fit
+  verdict: Verdict;
+  frictionScores: Record<FrictionCategory, number>; // each 0..1
+  matrix: MatrixRow[];          // why: envelope vs attributes vs RulePack
+  citationIds: string[];
+  confidence: Confidence;
+}
+
+export interface AnalysisResult {
+  country: string;
+  regionId: string;
+  reactorId: string;
+  pathway: Pathway;
+  sites: SiteScreening[];       // ranked shortlist; [] => no viable sites (e.g. Australia ban)
+  regionSummary: string;        // screen-level legal/physical context for the region
   nextStudies: string[];
-  notes: string;            // screen-level caveats
+  notes: string;                // screen-level caveats
 }
 
 // ---- API request bodies ----
@@ -90,7 +138,7 @@ export interface AnalyzeRequest {
   regionId: string;
   reactorId: string;
   pathway: Pathway;
-  cooling: string;
+  cooling?: string;             // optional global preference; cooling is judged per candidate site
 }
 
 export interface ChatMessage { role: 'user' | 'assistant'; content: string; }

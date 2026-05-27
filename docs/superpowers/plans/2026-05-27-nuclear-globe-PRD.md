@@ -113,24 +113,41 @@ export interface ReactorModel {
   citation: Citation;         // real spec-sheet source
 }
 
-// ---- Analysis ----
+// ---- Analysis: SITE-FINDER model (updated 2026-05-27) ----
+// User picks (region + reactor); the platform FINDS the land — filters a prepared
+// pool of candidate sites by the reactor's envelope, then ranks + reasons live.
+// Full definitions are the source of truth in src/types.ts; summary here:
 export type Verdict = 'pass' | 'caution' | 'fail';
 export type FrictionCategory = 'grid' | 'cooling' | 'permits' | 'community' | 'logistics' | 'hazards';
 export type Pathway = 'greenfield' | 'coal-repower';
+export type SiteKind = 'named' | 'greenfield'; // reuse a known site vs unused land
 
-export interface MatrixRow {
-  constraint: string;
-  verdict: Verdict;
-  reason: string;
-  citationIds: string[];
+export interface MatrixRow { constraint: string; verdict: Verdict; reason: string; citationIds: string[]; }
+
+// Prepared candidate land (F3b data layer): named brownfields + greenfield zones.
+export interface SiteAttributes {
+  availableFootprintHectares: number; coolingSource: string;
+  waterAvailability: 'abundant' | 'limited' | 'none'; gridDistanceKm: number;
+  populationDensity: 'low' | 'medium' | 'high'; hazards: string[];
+  landStatus: string; protectedAreaFlag: boolean;
+}
+export interface CandidateSite {
+  id: string; country: string; regionId: string; name: string; kind: SiteKind;
+  lat: number; lng: number; attributes: SiteAttributes;
+  suitableTechnologies: ReactorTechnology[]; citationIds: string[]; confidence: Confidence;
+}
+
+// Live per-site screening result.
+export interface SiteScreening {
+  siteId: string; siteName: string; kind: SiteKind; lat: number; lng: number;
+  rank: number; verdict: Verdict; frictionScores: Record<FrictionCategory, number>;
+  matrix: MatrixRow[]; citationIds: string[]; confidence: Confidence;
 }
 
 export interface AnalysisResult {
-  matrix: MatrixRow[];
-  frictionScores: Record<FrictionCategory, number>; // each 0..1
-  confidence: Confidence;
-  nextStudies: string[];
-  notes: string;            // screen-level caveats
+  country: string; regionId: string; reactorId: string; pathway: Pathway;
+  sites: SiteScreening[];   // ranked shortlist; [] => no viable sites (e.g. Australia ban)
+  regionSummary: string; nextStudies: string[]; notes: string;
 }
 
 // ---- API request bodies ----
@@ -139,7 +156,7 @@ export interface AnalyzeRequest {
   regionId: string;
   reactorId: string;
   pathway: Pathway;
-  cooling: string;
+  cooling?: string;         // optional global preference; cooling judged per candidate site
 }
 
 export interface ChatMessage { role: 'user' | 'assistant'; content: string; }

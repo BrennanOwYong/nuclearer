@@ -11,9 +11,26 @@ const analyzeReq: AnalyzeRequest = {
 };
 
 const analyzeResult: AnalysisResult = {
-  matrix: [{ constraint: 'grid', verdict: 'pass', reason: 'ok', citationIds: ['x'] }],
-  frictionScores: { grid: 0.2, cooling: 0.3, permits: 0.4, community: 0.1, logistics: 0.2, hazards: 0.1 },
-  confidence: 'medium',
+  country: 'USA',
+  regionId: 'US-WY',
+  reactorId: 'ge-bwrx-300',
+  pathway: 'coal-repower',
+  sites: [
+    {
+      siteId: 'us-wy-naughton',
+      siteName: 'Naughton (Kemmerer) coal site',
+      kind: 'named',
+      lat: 41.8,
+      lng: -110.7,
+      rank: 1,
+      verdict: 'pass',
+      frictionScores: { grid: 0.2, cooling: 0.3, permits: 0.4, community: 0.1, logistics: 0.2, hazards: 0.1 },
+      matrix: [{ constraint: 'grid', verdict: 'pass', reason: 'existing switchyard', citationIds: ['x'] }],
+      citationIds: ['x'],
+      confidence: 'medium',
+    },
+  ],
+  regionSummary: 'screen-level only',
   nextStudies: ['seismic survey'],
   notes: 'screen-level only',
 };
