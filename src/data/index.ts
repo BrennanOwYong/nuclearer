@@ -1,4 +1,4 @@
-import type { CountryCorpus, RegionData, ReactorModel } from '../types';
+import type { CountryCorpus, RegionData, ReactorModel, CandidateSite } from '../types';
 import { usaCorpus } from './countries/usa';
 import { polandCorpus } from './countries/poland';
 import { australiaCorpus } from './countries/australia';
@@ -9,12 +9,27 @@ import { plGreaterPoland } from './regions/pl-greater-poland';
 import { auSouthAustralia } from './regions/au-sa';
 import { auNorthernTerritory } from './regions/au-nt';
 import { reactors } from './reactors';
+import { candidateSitesUSWY } from './sites/us-wy';
+import { candidateSitesUSIL } from './sites/us-il';
+import { candidateSitesPL22 } from './sites/pl-22';
+import { candidateSitesPL30 } from './sites/pl-30';
+import { candidateSitesAUSA } from './sites/au-sa';
+import { candidateSitesAUNT } from './sites/au-nt';
 
 const COUNTRIES: Record<string, CountryCorpus> = {
   USA: usaCorpus,
   POL: polandCorpus,
   AUS: australiaCorpus,
 };
+
+const CANDIDATE_SITES: CandidateSite[][] = [
+  candidateSitesUSWY,
+  candidateSitesUSIL,
+  candidateSitesPL22,
+  candidateSitesPL30,
+  candidateSitesAUSA,
+  candidateSitesAUNT,
+];
 
 const REGIONS: RegionData[] = [
   usWyoming,
@@ -55,4 +70,17 @@ export function listFlagshipRegions(): { country: string; regionId: string; regi
     regionId: r.regionId,
     regionName: r.regionName,
   }));
+}
+
+/**
+ * Returns the prepared candidate-site pool for the given country + regionId.
+ * Safe to call from the browser/client. Never throws. Returns [] on miss.
+ */
+export function getCandidateSites(country: string, regionId: string): CandidateSite[] {
+  for (const pool of CANDIDATE_SITES) {
+    if (pool.length > 0 && pool[0].country === country && pool[0].regionId === regionId) {
+      return pool;
+    }
+  }
+  return [];
 }
