@@ -77,6 +77,7 @@ export interface MatrixRow {
   verdict: Verdict;
   reason: string;
   citationIds: string[];
+  dataBasis: 'computable' | 'requires-field-study';
 }
 
 // Prepared candidate-land attributes (the cheap source-layer values, F3b data).

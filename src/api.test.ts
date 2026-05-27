@@ -25,7 +25,7 @@ const analyzeResult: AnalysisResult = {
       rank: 1,
       verdict: 'pass',
       frictionScores: { grid: 0.2, cooling: 0.3, permits: 0.4, community: 0.1, logistics: 0.2, hazards: 0.1 },
-      matrix: [{ constraint: 'grid', verdict: 'pass', reason: 'existing switchyard', citationIds: ['x'] }],
+      matrix: [{ constraint: 'grid', verdict: 'pass', reason: 'existing switchyard', citationIds: ['x'], dataBasis: 'computable' as const }],
       citationIds: ['x'],
       confidence: 'medium',
     },
