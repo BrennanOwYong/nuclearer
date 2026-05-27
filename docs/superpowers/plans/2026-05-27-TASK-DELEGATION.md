@@ -22,17 +22,30 @@ All types/signatures in **PRD §5** and the reconciliations in **PRD §5.1** are
 - Inline `[source-id]` citation tokens → `server/citations.ts` `extractCitationIds(text, validIds)` — single shared helper authored in Wave 1 (F1); both endpoints import it (analyze fills `citationIds`, chat maps ids→`Citation[]`).
 - API: `POST /api/analyze` (`AnalyzeRequest`→`AnalysisResult`), `POST /api/chat` (`ChatRequest`→`ChatResponse`).
 
-## 3. Execution waves (dependency DAG)
+## 3. Execution sequence — testable vertical slices
+
+Per project-owner directive (2026-05-27): build in stages that are each **runnable and UI-testable** before moving on — validate the UX first, add the LLM reasoning later, tie it together with chat last. This reorders the dependency DAG into demoable checkpoints.
 
 ```
-Wave 1:  F1 (scaffold, types, proxy, stubs)        ── must merge before anything else
-Wave 2:  F2 (globe)        ∥  F3 (data + corpus)    ── parallel, both depend only on F1
-Wave 3:  F4 (dashboard)                              ── depends on F2 + F3
-Wave 4:  F5 (add-plant+analyze)  ∥  F6 (chat+layout) ── parallel, both depend on F3 + F4
-Final:   Integration pass (golden path + Australia-ban E2E, full unit + e2e suites green)
+Stage 0 — F1 (scaffold/gate) ............ merge to main; nothing compiles without it
+Stage 1 — F2 (globe: drag-spin + region select + border highlight)
+            ▶ TEST: npm run dev → spin the globe, click regions, see highlight
+Stage 2 — F3 (data) + F4 (dashboard panels) + F5a (AddPlant params + "Run analysis" button)
+            /api/analyze returns a STUB AnalysisResult fixture (NO LLM yet)
+            ▶ TEST: click region → cited panels → pick technology→company→model→pathway→cooling
+                     → click Run → stub report (matrix + friction bars) renders
+Stage 3 — F5b (real /api/analyze: buildAnalyzePrompt → callModel → parseAndNormalize; replaces stub)
+            ▶ TEST: Run analysis returns real cited feasibility; Australia yields a cited `fail`
+Stage 4 — F6 (floating chat + dynamic layout, grounded /api/chat)
+            ▶ TEST: open chat shifts globe+dashboard left; grounded cited answers; close recenters
+Final  — integration polish + full unit/e2e suites green + one live smoke run
 ```
 
-**Why F1 is a hard gate:** it authors `src/types.ts`, the `CorpusNotFoundError` class, the `callModel` helper, the client `src/api.ts` wrappers, and the 501 route + corpus stubs every downstream feature imports. Nothing compiles without it.
+Within a stage, independent files may be built by parallel agents (e.g. Stage 2: F3 data ∥ F4/F5a UI, the UI working against fixtures + the known flagship region ids `US-WY` / `US-IL` / `PL-22` / `PL-30` / `AU-SA` / `AU-NT`), reconciled before that stage's ▶ TEST checkpoint.
+
+**F5 split:** F5a = AddPlant stepper + AnalysisReport rendering against a **stubbed** `/api/analyze` (Stage 2). F5b = the real reasoning route (Stage 3). The frozen `AnalyzeRequest`/`AnalysisResult` contract is identical for both, so F5a's stub returns a valid `AnalysisResult` fixture and the UI is fully exercised before any reasoning exists.
+
+**Why F1 is a hard gate:** it authors `src/types.ts`, `CorpusNotFoundError`, `callModel`, the client `src/api.ts` wrappers, `server/citations.ts`, and the 501 route + corpus stubs every downstream feature imports. Nothing compiles without it.
 
 ## 4. Per-feature briefs
 
