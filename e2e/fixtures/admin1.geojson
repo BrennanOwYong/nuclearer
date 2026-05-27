@@ -1,0 +1,25 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "adm0_a3": "USA", "iso_3166_2": "US-WY", "adm1_code": "USA-WY", "name": "Wyoming" },
+      "geometry": { "type": "Polygon", "coordinates": [[[-111, 41], [-104, 41], [-104, 45], [-111, 45], [-111, 41]]] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "adm0_a3": "POL", "iso_3166_2": "PL-22", "adm1_code": "POL-22", "name": "Pomeranian" },
+      "geometry": { "type": "Polygon", "coordinates": [[[17, 54], [19, 54], [19, 55], [17, 55], [17, 54]]] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "adm0_a3": "AUS", "iso_3166_2": "AU-SA", "adm1_code": "AUS-SA", "name": "South Australia" },
+      "geometry": { "type": "Polygon", "coordinates": [[[129, -35], [141, -35], [141, -26], [129, -26], [129, -35]]] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "adm0_a3": "FRA", "iso_3166_2": "FR-IDF", "adm1_code": "FRA-IDF", "name": "Ile-de-France" },
+      "geometry": { "type": "Polygon", "coordinates": [[[2, 48], [3, 48], [3, 49], [2, 49], [2, 48]]] }
+    }
+  ]
+}
