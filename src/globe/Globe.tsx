@@ -79,10 +79,10 @@ export function Globe({ onRegionSelected, shifted = false }: GlobeProps) {
 
     globeRef.current = world;
 
-    // Enable gentle auto-rotate that stops when user interacts.
+    // Globe stays still by default; user drives rotation by dragging. Damping
+    // keeps drag-spin smooth. (Auto-rotate disabled per project-owner request.)
     const controls = world.controls();
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.4;
+    controls.autoRotate = false;
     controls.enableDamping = true;
     controls.dampingFactor = 0.1;
 
