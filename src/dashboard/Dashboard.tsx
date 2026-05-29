@@ -6,7 +6,7 @@
  */
 import React, { useState, useCallback, useMemo } from 'react';
 import type { AnalysisResult } from '../types';
-import { getCountryCorpus, getRegionData, getReactors } from '../data/index';
+import { getCountryCorpus, getRegionData, getReactors, listFlagshipRegions } from '../data/index';
 import { PanelMenu } from './PanelMenu';
 import { SiteFinder } from './SiteFinder';
 import { SiteResults } from './SiteResults';
@@ -14,6 +14,8 @@ import { SiteResults } from './SiteResults';
 export interface DashboardProps {
   country: string | null;
   regionId: string | null;
+  /** Select a region from inside the dashboard (roster click). Mirrors the globe click. */
+  onSelectRegion?: (country: string, regionId: string, regionName: string) => void;
 }
 
 type Tab = 'context' | 'find';
@@ -24,8 +26,9 @@ function buildCitationUrlMap(corpus: ReturnType<typeof getCountryCorpus>): Recor
   return Object.fromEntries(corpus.sources.map((s) => [s.id, s.url]));
 }
 
-export function Dashboard({ country, regionId }: DashboardProps): React.ReactElement {
+export function Dashboard({ country, regionId, onSelectRegion }: DashboardProps): React.ReactElement {
   const [activeTab, setActiveTab] = useState<Tab>('context');
+  const flagshipRegions = useMemo(() => listFlagshipRegions(), []);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -113,6 +116,8 @@ export function Dashboard({ country, regionId }: DashboardProps): React.ReactEle
             regionId={regionId}
             corpus={corpus}
             region={region}
+            flagshipRegions={flagshipRegions}
+            onSelectRegion={onSelectRegion}
           />
         )}
 

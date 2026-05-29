@@ -39,7 +39,11 @@ export default function App(): React.ReactElement {
         <Globe onRegionSelected={handleRegionSelected} />
       </div>
       <div data-testid="dashboard-slot">
-        <Dashboard country={selectedCountry} regionId={selectedRegionId} />
+        <Dashboard
+          country={selectedCountry}
+          regionId={selectedRegionId}
+          onSelectRegion={handleRegionSelected}
+        />
       </div>
       <div data-testid="chat-slot" />
     </div>

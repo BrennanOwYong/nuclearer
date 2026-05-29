@@ -104,6 +104,22 @@ export function SiteFinder({
       )}
 
       <div className="site-finder-pickers">
+        {/* Pathway — chosen first: it frames the whole search (greenfield vs reuse a coal site) */}
+        <label className="site-finder-label" htmlFor="sf-pathway">
+          Pathway
+        </label>
+        <select
+          id="sf-pathway"
+          className="site-finder-select"
+          value={pathway}
+          onChange={(e) => setPathway(e.target.value as Pathway)}
+          data-testid="select-pathway"
+          disabled={!country || !regionId}
+        >
+          <option value="greenfield">Greenfield (new site on unused land)</option>
+          <option value="coal-repower">Coal-repower (reuse a retiring coal site)</option>
+        </select>
+
         {/* Technology family */}
         <label className="site-finder-label" htmlFor="sf-tech">
           Technology family
@@ -183,21 +199,6 @@ export function SiteFinder({
             </a>
           </div>
         )}
-
-        {/* Pathway */}
-        <label className="site-finder-label" htmlFor="sf-pathway">
-          Pathway
-        </label>
-        <select
-          id="sf-pathway"
-          className="site-finder-select"
-          value={pathway}
-          onChange={(e) => setPathway(e.target.value as Pathway)}
-          data-testid="select-pathway"
-        >
-          <option value="greenfield">Greenfield</option>
-          <option value="coal-repower">Coal-repower (brownfield)</option>
-        </select>
       </div>
 
       <button
