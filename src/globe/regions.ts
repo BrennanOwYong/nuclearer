@@ -39,6 +39,32 @@ export function filterToDemoCountries(fc: Admin1FeatureCollection): Admin1Featur
   return fc.features.filter((f) => DEMO_SET.has(f?.properties?.adm0_a3));
 }
 
+/**
+ * Rough centroid (average of all vertices) of a Polygon/MultiPolygon feature.
+ * Good enough for positioning the camera (fly-to), not for exact labeling.
+ */
+export function featureCentroid(feature: Admin1Feature): { lat: number; lng: number } {
+  let sumLng = 0;
+  let sumLat = 0;
+  let n = 0;
+  const walk = (coords: unknown): void => {
+    if (
+      Array.isArray(coords) &&
+      typeof coords[0] === 'number' &&
+      typeof coords[1] === 'number'
+    ) {
+      sumLng += coords[0] as number;
+      sumLat += coords[1] as number;
+      n += 1;
+    } else if (Array.isArray(coords)) {
+      for (const c of coords) walk(c);
+    }
+  };
+  walk((feature.geometry as { coordinates?: unknown })?.coordinates);
+  if (n === 0) return { lat: 0, lng: 0 };
+  return { lat: sumLat / n, lng: sumLng / n };
+}
+
 /** Derive stable {country, regionId, regionName} from a Natural Earth admin-1 feature. */
 export function extractRegion(feature: Admin1Feature): RegionIdentity {
   const p = feature.properties;

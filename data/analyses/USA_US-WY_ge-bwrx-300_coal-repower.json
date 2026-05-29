@@ -1,0 +1,671 @@
+{
+  "country": "USA",
+  "regionId": "US-WY",
+  "reactorId": "ge-bwrx-300",
+  "pathway": "coal-repower",
+  "sites": [
+    {
+      "siteId": "us-wy-naughton-kemmerer",
+      "siteName": "Naughton Plant / Kemmerer (TerraPower Natrium site)",
+      "kind": "named",
+      "lat": 41.7571,
+      "lng": -110.5974,
+      "rank": 1,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.05,
+        "cooling": 0.55,
+        "permits": 0.15,
+        "community": 0.15,
+        "logistics": 0.1,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 180 ha against a 4 ha reactor envelope; land status: retiring coal (brownfield) — PacifiCorp Naughton Plant; private/industrial. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "wy-land-coal-repower"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for SMR BWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "us-nrc-10cfr100",
+            "us-nrc-100-21"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-grid-baseload",
+            "wy-water-arid",
+            "us-nepa"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "caution",
+          "reason": "Cooling source: Hams Fork River (dry/hybrid cooling tower; once-through impractical). Water availability is marked limited; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "wy-water-arid"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 0 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "wy-grid-baseload"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-grid-baseload",
+            "us-nrc-10cfr100"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "G. Repower-specific",
+          "verdict": "pass",
+          "reason": "Brownfield/repower advantages may include existing land, roads, workforce, water corridors and switchyards, but remediation, legacy liabilities, permit transferability and demolition interfaces require diligence.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-grid-baseload"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-grid-baseload",
+            "wy-water-arid"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "wy-land-coal-repower",
+        "wy-grid-baseload",
+        "wy-water-arid",
+        "wy-pathway"
+      ],
+      "confidence": "high"
+    },
+    {
+      "siteId": "us-wy-dave-johnston-glenrock",
+      "siteName": "Dave Johnston Plant / Glenrock (retiring coal brownfield)",
+      "kind": "named",
+      "lat": 42.8396,
+      "lng": -105.7769,
+      "rank": 2,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.05,
+        "cooling": 0.55,
+        "permits": 0.15,
+        "community": 0.15,
+        "logistics": 0.1,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 280 ha against a 4 ha reactor envelope; land status: retiring coal (brownfield) — PacifiCorp Dave Johnston; private/industrial. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "wy-land-coal-repower"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for SMR BWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "us-nrc-10cfr100",
+            "us-nrc-100-21"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-grid-baseload",
+            "wy-water-arid",
+            "us-nepa"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "caution",
+          "reason": "Cooling source: North Platte River (existing cooling water rights; CWA §316(b) friction). Water availability is marked limited; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "wy-water-arid",
+            "us-cwa-316b"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 0 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "wy-grid-baseload"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-grid-baseload",
+            "us-nrc-10cfr100"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "G. Repower-specific",
+          "verdict": "pass",
+          "reason": "Brownfield/repower advantages may include existing land, roads, workforce, water corridors and switchyards, but remediation, legacy liabilities, permit transferability and demolition interfaces require diligence.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-grid-baseload"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-grid-baseload",
+            "wy-water-arid"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "wy-land-coal-repower",
+        "wy-grid-baseload",
+        "wy-water-arid",
+        "us-cwa-316b"
+      ],
+      "confidence": "high"
+    },
+    {
+      "siteId": "us-wy-wyodak-gillette",
+      "siteName": "Wyodak Plant / Gillette (retiring coal brownfield, Campbell County)",
+      "kind": "named",
+      "lat": 44.2886,
+      "lng": -105.3851,
+      "rank": 3,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.05,
+        "cooling": 0.55,
+        "permits": 0.15,
+        "community": 0.15,
+        "logistics": 0.1,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 350 ha against a 4 ha reactor envelope; land status: retiring coal (brownfield) — PacifiCorp/Black Hills Wyodak; private/industrial. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "wy-land-coal-repower"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for SMR BWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "us-nrc-10cfr100",
+            "us-nrc-100-21"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-grid-baseload",
+            "wy-water-arid",
+            "us-nepa"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "caution",
+          "reason": "Cooling source: Belle Fourche River (limited; dry cooling preferred; CWA §316(b) applies). Water availability is marked limited; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "wy-water-arid",
+            "us-cwa-316b"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 0 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "wy-grid-baseload"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-grid-baseload",
+            "us-nrc-10cfr100"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "G. Repower-specific",
+          "verdict": "pass",
+          "reason": "Brownfield/repower advantages may include existing land, roads, workforce, water corridors and switchyards, but remediation, legacy liabilities, permit transferability and demolition interfaces require diligence.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-grid-baseload"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-grid-baseload",
+            "wy-water-arid"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "wy-land-coal-repower",
+        "wy-grid-baseload",
+        "wy-water-arid",
+        "us-cwa-316b"
+      ],
+      "confidence": "high"
+    },
+    {
+      "siteId": "us-wy-rawlins-blm-greenfield",
+      "siteName": "Southern Wyoming BLM Zone — Carbon County (greenfield, Rawlins corridor)",
+      "kind": "greenfield",
+      "lat": 41.79,
+      "lng": -107.8,
+      "rank": 4,
+      "verdict": "caution",
+      "frictionScores": {
+        "grid": 0.15,
+        "cooling": 0.95,
+        "permits": 0.4,
+        "community": 0.15,
+        "logistics": 0.25,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 1000 ha against a 4 ha reactor envelope; land status: BLM federal land (public surface) — federal ROD permitting required. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "wy-land-coal-repower"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for SMR BWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "us-nrc-10cfr100",
+            "us-nrc-100-21"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-water-arid",
+            "wy-population",
+            "us-nepa"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "fail",
+          "reason": "Cooling source: dry/air-cooled only — no perennial surface water; arid high desert. Water availability is marked none; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "wy-water-arid"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 5 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-water-arid"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low, wind-high. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "wy-population",
+            "wy-land-coal-repower",
+            "wy-water-arid",
+            "us-nrc-10cfr100"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "G. Repower-specific",
+          "verdict": "caution",
+          "reason": "Brownfield/repower advantages may include existing land, roads, workforce, water corridors and switchyards, but remediation, legacy liabilities, permit transferability and demolition interfaces require diligence.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-water-arid"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-water-arid",
+            "wy-population"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "wy-land-coal-repower",
+        "wy-water-arid",
+        "wy-population",
+        "us-nepa"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "us-wy-casper-north-platte-greenfield",
+      "siteName": "Casper Area / North Platte River Corridor (greenfield, Natrona County)",
+      "kind": "greenfield",
+      "lat": 42.69,
+      "lng": -106.35,
+      "rank": 5,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.35,
+        "cooling": 0.55,
+        "permits": 0.4,
+        "community": 0.15,
+        "logistics": 0.45,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 500 ha against a 4 ha reactor envelope; land status: BLM/private mix — state trust lands and BLM parcels; NRC siting study required. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "wy-land-coal-repower"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for SMR BWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "us-nrc-10cfr100",
+            "us-nrc-100-21"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-water-arid",
+            "wy-grid-baseload",
+            "us-nepa"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "caution",
+          "reason": "Cooling source: North Platte River — senior water rights constrained; hybrid cooling preferred. Water availability is marked limited; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "wy-water-arid",
+            "us-cwa-316b"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "caution",
+          "reason": "Grid distance is 8 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "wy-grid-baseload"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-water-arid",
+            "us-nrc-10cfr100"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "G. Repower-specific",
+          "verdict": "caution",
+          "reason": "Brownfield/repower advantages may include existing land, roads, workforce, water corridors and switchyards, but remediation, legacy liabilities, permit transferability and demolition interfaces require diligence.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-grid-baseload",
+            "wy-water-arid"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "caution",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-water-arid",
+            "wy-grid-baseload"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "wy-land-coal-repower",
+        "wy-water-arid",
+        "wy-grid-baseload",
+        "us-cwa-316b",
+        "us-nepa"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "us-wy-wind-river-jeffrey-city",
+      "siteName": "Wind River Basin / Jeffrey City BLM Zone (greenfield, Fremont County)",
+      "kind": "greenfield",
+      "lat": 42.49,
+      "lng": -107.83,
+      "rank": 6,
+      "verdict": "caution",
+      "frictionScores": {
+        "grid": 0.35,
+        "cooling": 0.95,
+        "permits": 0.4,
+        "community": 0.15,
+        "logistics": 0.45,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 800 ha against a 4 ha reactor envelope; land status: BLM federal land — historic uranium mining; brownfield characterization may be needed. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "wy-land-coal-repower"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for SMR BWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "us-nrc-10cfr100",
+            "us-nrc-100-21"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-water-arid",
+            "wy-population",
+            "us-nepa"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "fail",
+          "reason": "Cooling source: dry/air-cooled only — Wind River flows seasonally; no reliable intake source. Water availability is marked none; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "wy-water-arid"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "caution",
+          "reason": "Grid distance is 20 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-water-arid"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "wy-population",
+            "wy-land-coal-repower",
+            "wy-water-arid",
+            "us-nrc-10cfr100"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "G. Repower-specific",
+          "verdict": "caution",
+          "reason": "Brownfield/repower advantages may include existing land, roads, workforce, water corridors and switchyards, but remediation, legacy liabilities, permit transferability and demolition interfaces require diligence.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-water-arid"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "caution",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "wy-land-coal-repower",
+            "wy-water-arid",
+            "wy-population"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "wy-land-coal-repower",
+        "wy-water-arid",
+        "wy-population",
+        "us-nepa"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "regionSummary": "Wyoming has a strong coal-repower screen case: retiring coal nodes provide land and transmission reuse, while the NRC siting pathway still requires 10 CFR Part 100 and population/exclusion-area analysis [us-nrc-10cfr100] [us-nrc-100-21]. Water scarcity pushes BWRX-300 screens toward dry/hybrid/tower cooling and away from once-through cooling [us-cwa-316b].",
+  "nextStudies": [
+    "Title/zoning/land-control diligence and exclusion-area mapping.",
+    "Brownfield remediation, demolition, legacy contamination and permit-transferability diligence.",
+    "Nuclear site suitability scoping against national regulator criteria.",
+    "NEPA/EIA/ESIA scoping, ecological and cultural-heritage baseline surveys.",
+    "Water-rights, intake/discharge and thermal plume/cooling-tower feasibility study.",
+    "Grid interconnection feasibility, queue position and reinforcement estimate.",
+    "Emergency planning, security standoff and population-centre screening.",
+    "Oversize logistics route and construction laydown survey."
+  ],
+  "notes": "Screen-level triage only. Rankings use only the supplied corpus/site facts and citation IDs; they do not determine licensability, approvals, investment readiness, landowner consent, final engineering feasibility, or public acceptability."
+}

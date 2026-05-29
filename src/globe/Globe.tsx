@@ -1,9 +1,10 @@
 // src/globe/Globe.tsx
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import GlobeGL, { type GlobeInstance } from 'globe.gl';
 import {
   loadAdmin1GeoJson,
   extractRegion,
+  featureCentroid,
   highlightStateFor,
   polygonCapColorFor,
   polygonStrokeColorFor,
@@ -21,6 +22,8 @@ export interface GlobeProps {
   onRegionSelected: (country: string, regionId: string, regionName: string) => void;
   /** Reserved for F6 dynamic layout. Slides the globe container left when true. F2 only accepts/forwards it. */
   shifted?: boolean;
+  /** Externally-selected region (e.g. from the dashboard roster): highlight it + fly the camera to it. */
+  selectedRegionId?: string | null;
 }
 
 declare global {
@@ -32,13 +35,15 @@ declare global {
   }
 }
 
-export function Globe({ onRegionSelected, shifted = false }: GlobeProps) {
+export function Globe({ onRegionSelected, shifted = false, selectedRegionId = null }: GlobeProps) {
   const mountRef = useRef<HTMLDivElement | null>(null);
   // Mutable hover/selection ids; we re-trigger styling imperatively via globe.polygonsData(...).
   const hoveredId = useRef<string | null>(null);
   const selectedId = useRef<string | null>(null);
   const globeRef = useRef<GlobeInstance | null>(null);
   const featuresRef = useRef<Admin1Feature[]>([]);
+  // Flips true once polygons have loaded — lets the fly-to effect run after data is ready.
+  const [dataReady, setDataReady] = useState(false);
 
   useEffect(() => {
     const el = mountRef.current;
@@ -117,6 +122,7 @@ export function Globe({ onRegionSelected, shifted = false }: GlobeProps) {
         world.polygonsData(features as object[]);
         // Test signal: data is loaded and interactive.
         el.setAttribute('data-globe-ready', 'true');
+        setDataReady(true);
 
         // Re-register test helper AFTER features are loaded so __globeClickRegion
         // has access to the populated featuresRef.
@@ -154,6 +160,22 @@ export function Globe({ onRegionSelected, shifted = false }: GlobeProps) {
     // onRegionSelected intentionally read fresh via closure; effect runs once on mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // React to an externally-selected region (dashboard roster): highlight + fly camera to it.
+  useEffect(() => {
+    const world = globeRef.current;
+    const el = mountRef.current;
+    if (!world || !el || !selectedRegionId) return;
+    const target = featuresRef.current.find(
+      (f) => extractRegion(f).regionId === selectedRegionId,
+    );
+    if (!target) return;
+    selectedId.current = selectedRegionId;
+    world.polygonsData(featuresRef.current as object[]); // restyle for highlight
+    el.setAttribute('data-selected-region', selectedRegionId);
+    const { lat, lng } = featureCentroid(target);
+    world.pointOfView({ lat, lng, altitude: 1.6 }, 1000); // animate over 1s
+  }, [selectedRegionId, dataReady]);
 
   return (
     <div

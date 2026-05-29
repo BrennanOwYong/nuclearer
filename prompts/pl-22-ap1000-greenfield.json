@@ -1,0 +1,504 @@
+{
+  "country": "POL",
+  "regionId": "PL-22",
+  "reactorId": "westinghouse-ap1000",
+  "pathway": "greenfield",
+  "sites": [
+    {
+      "siteId": "pl-22-gdansk-bay-industrial-greenfield",
+      "siteName": "Gdańsk Bay Industrial Coastal Zone (greenfield screen, Trójmiasto fringe)",
+      "kind": "greenfield",
+      "lat": 54.56,
+      "lng": 18.55,
+      "rank": 1,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.15,
+        "cooling": 0.1,
+        "permits": 0.4,
+        "community": 0.45,
+        "logistics": 0.15,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 150 ha against a 6 ha reactor envelope; land status: industrial port zone — Gdańsk Special Economic Zone; multi-use planning; complex permitting. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "pl22-grid-pse",
+            "pl22-water-baltic"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for large PWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "pl-prawo-atomowe"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "pl22-grid-pse",
+            "pl22-water-baltic",
+            "pl22-population"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Baltic/Gdańsk Bay seawater — brackish (less saline than open sea). Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "pl22-water-baltic"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 2 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "pl22-grid-pse"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "caution",
+          "reason": "Population density is marked medium and hazards include seismic-none, flood-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "pl22-population",
+            "pl22-grid-pse",
+            "pl22-water-baltic",
+            "pl-prawo-atomowe"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "pl22-grid-pse",
+            "pl22-water-baltic",
+            "pl22-population"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "pl22-grid-pse",
+        "pl22-water-baltic",
+        "pl22-population",
+        "pl-prawo-atomowe"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "pl-22-zarnowiec",
+      "siteName": "Żarnowiec Historic NPP Site (Lake Żarnowiec, Gmina Gniewino)",
+      "kind": "named",
+      "lat": 54.7,
+      "lng": 18.1,
+      "rank": 2,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.55,
+        "cooling": 0.1,
+        "permits": 0.25,
+        "community": 0.15,
+        "logistics": 0.45,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 400 ha against a 6 ha reactor envelope; land status: former state NPP site — partial civil works remain; Polish State Treasury land; reactive if political will returns. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "pl22-land-coastal"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for large PWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "pl-prawo-atomowe"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "pl22-land-coastal",
+            "pl22-grid-pse",
+            "pl22-water-baltic"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Lake Żarnowiec (natural freshwater reservoir, ~14 km²) — pumped-storage hydro also present; limited salinity risk. Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "pl22-water-baltic"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "caution",
+          "reason": "Grid distance is 50 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "pl22-grid-pse"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-none. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "pl22-land-coastal",
+            "pl22-grid-pse",
+            "pl22-hazard-seismic",
+            "pl-prawo-atomowe"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "caution",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "pl22-land-coastal",
+            "pl22-grid-pse",
+            "pl22-water-baltic"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "pl22-land-coastal",
+        "pl22-grid-pse",
+        "pl22-water-baltic",
+        "pl22-hazard-seismic",
+        "pl-ppej",
+        "pl-prawo-atomowe"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "pl-22-ustka-coast-greenfield",
+      "siteName": "Eastern Pomerania Coast Greenfield Zone (near Ustka — Słupsk County)",
+      "kind": "greenfield",
+      "lat": 54.59,
+      "lng": 16.6,
+      "rank": 3,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.55,
+        "cooling": 0.1,
+        "permits": 0.4,
+        "community": 0.15,
+        "logistics": 0.45,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 300 ha against a 6 ha reactor envelope; land status: mixed state/private coastal land — Natura 2000 coastal forests nearby; environmental screening required. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "pl22-land-coastal"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for large PWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "pl-prawo-atomowe"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "pl22-land-coastal",
+            "pl22-grid-pse",
+            "pl22-water-baltic"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Baltic Sea seawater once-through — coastal strip; same low-salinity advantage as Lubiatowo. Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "pl22-water-baltic"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "caution",
+          "reason": "Grid distance is 50 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "pl22-grid-pse"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-none, storm-surge-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "pl22-land-coastal",
+            "pl22-grid-pse",
+            "pl-prawo-atomowe"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "caution",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "pl22-land-coastal",
+            "pl22-grid-pse",
+            "pl22-water-baltic"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "pl22-land-coastal",
+        "pl22-grid-pse",
+        "pl22-water-baltic",
+        "pl22-pathway"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "pl-22-lubiatowo-kopalino",
+      "siteName": "Lubiatowo-Kopalino (Choczewo NPP site — PEJ / Westinghouse AP1000)",
+      "kind": "named",
+      "lat": 54.668,
+      "lng": 17.776,
+      "rank": 4,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.55,
+        "cooling": 0.1,
+        "permits": 0.25,
+        "community": 0.15,
+        "logistics": 0.7,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 700 ha against a 6 ha reactor envelope; land status: state-designated NPP site — PEJ land acquisition in progress; Polish Atomic Law (Prawo atomowe) licensing pathway. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "pl22-land-coastal"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for large PWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "pl-prawo-atomowe"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "pl22-land-coastal",
+            "pl22-grid-pse",
+            "pl22-water-baltic"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Baltic Sea once-through seawater cooling (~7 ppt salinity, 1–2 km from site). Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "pl22-water-baltic"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "caution",
+          "reason": "Grid distance is 80 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "pl22-grid-pse"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-none, storm-surge-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "pl22-population",
+            "pl22-hazard-seismic",
+            "pl-prawo-atomowe"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "caution",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "pl22-land-coastal",
+            "pl22-grid-pse",
+            "pl22-water-baltic"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "pl22-land-coastal",
+        "pl22-grid-pse",
+        "pl22-water-baltic",
+        "pl22-hazard-seismic",
+        "pl22-population",
+        "pl-ppej",
+        "pl-site-lubiatowo"
+      ],
+      "confidence": "high"
+    },
+    {
+      "siteId": "pl-22-lebork-inland-greenfield",
+      "siteName": "Inland Pomerania Greenfield Zone (Lębork area — agricultural plateau)",
+      "kind": "greenfield",
+      "lat": 54.53,
+      "lng": 17.75,
+      "rank": 5,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.35,
+        "cooling": 0.55,
+        "permits": 0.4,
+        "community": 0.15,
+        "logistics": 0.45,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 200 ha against a 6 ha reactor envelope; land status: agricultural private land — standard PAA permitting; no known protected designation. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "pl22-grid-pse",
+            "pl22-population"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for large PWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "pl-prawo-atomowe"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "pl22-grid-pse",
+            "pl22-population",
+            "pl22-pathway"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "caution",
+          "reason": "Cooling source: Łeba River (small freshwater; limited flow) — cooling tower required; no seawater access. Water availability is marked limited; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "pl22-grid-pse",
+            "pl22-population"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "caution",
+          "reason": "Grid distance is 30 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "pl22-grid-pse"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-none. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "pl22-population",
+            "pl22-grid-pse",
+            "pl-prawo-atomowe"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "caution",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "pl22-grid-pse",
+            "pl22-population",
+            "pl22-pathway"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "pl22-grid-pse",
+        "pl22-population",
+        "pl22-pathway",
+        "pl-prawo-atomowe"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "regionSummary": "Pomeranian Voivodeship is Poland's first-NPP region: the PPEJ names PEJ/Westinghouse AP1000 deployment, Lubiatowo-Kopalino is the selected coastal site [pl-ppej], and Polish Atomic Law provides the PAA licensing pathway [pl-prawo-atomowe]. Coastal Baltic cooling and low rural population make Lubiatowo-Kopalino the lowest-friction screen candidate [pl-site-lubiatowo].",
+  "nextStudies": [
+    "Title/zoning/land-control diligence and exclusion-area mapping.",
+    "Nuclear site suitability scoping against national regulator criteria.",
+    "NEPA/EIA/ESIA scoping, ecological and cultural-heritage baseline surveys.",
+    "Water-rights, intake/discharge and thermal plume/cooling-tower feasibility study.",
+    "Grid interconnection feasibility, queue position and reinforcement estimate.",
+    "Emergency planning, security standoff and population-centre screening.",
+    "Oversize logistics route and construction laydown survey."
+  ],
+  "notes": "Screen-level triage only. Rankings use only the supplied corpus/site facts and citation IDs; they do not determine licensability, approvals, investment readiness, landowner consent, final engineering feasibility, or public acceptability."
+}

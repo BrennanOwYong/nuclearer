@@ -36,7 +36,7 @@ export default function App(): React.ReactElement {
   return (
     <div data-testid="app-shell" style={{ width: '100vw', height: '100vh', background: '#05070d', color: '#e6edf3', position: 'relative' }}>
       <div data-testid="globe-slot" style={{ position: 'absolute', inset: 0 }}>
-        <Globe onRegionSelected={handleRegionSelected} />
+        <Globe onRegionSelected={handleRegionSelected} selectedRegionId={selectedRegionId} />
       </div>
       <div data-testid="dashboard-slot">
         <Dashboard

@@ -1,6 +1,10 @@
 import { readFileSync } from 'fs';
-import { resolve } from 'path';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import type { AnalysisResult, AnalyzeRequest } from '../src/types';
+
+// ESM-safe __dirname (the server runs as ES modules, where __dirname is undefined).
+const moduleDir = dirname(fileURLToPath(import.meta.url));
 
 /**
  * Returns a stable cache key for an analysis request.
@@ -19,7 +23,7 @@ export function analysisKey(req: Pick<AnalyzeRequest, 'country' | 'regionId' | '
 export function loadCachedAnalysis(req: Pick<AnalyzeRequest, 'country' | 'regionId' | 'reactorId' | 'pathway'>): AnalysisResult | null {
   const key = analysisKey(req);
   // Resolve relative to project root (one level up from server/)
-  const filePath = resolve(__dirname, '..', 'data', 'analyses', `${key}.json`);
+  const filePath = resolve(moduleDir, '..', 'data', 'analyses', `${key}.json`);
   try {
     const raw = readFileSync(filePath, 'utf-8');
     const parsed = JSON.parse(raw) as AnalysisResult;

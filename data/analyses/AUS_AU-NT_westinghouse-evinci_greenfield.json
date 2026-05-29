@@ -1,0 +1,516 @@
+{
+  "country": "AUS",
+  "regionId": "AU-NT",
+  "reactorId": "westinghouse-evinci",
+  "pathway": "greenfield",
+  "sites": [
+    {
+      "siteId": "au-nt-katherine-river-corridor",
+      "siteName": "Katherine River Corridor (greenfield screen — southern DKIS fringe)",
+      "kind": "greenfield",
+      "lat": -14.467,
+      "lng": 132.264,
+      "rank": 1,
+      "verdict": "fail",
+      "frictionScores": {
+        "grid": 0.05,
+        "cooling": 0.05,
+        "permits": 0.4,
+        "community": 0.15,
+        "logistics": 0.15,
+        "hazards": 0.5
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 200 ha against a 0.8 ha reactor envelope; land status: Crown land / pastoral lease — Jawoyn and Dagoman Aboriginal country; FPIC obligations; nuclear banned. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-water-scarce"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "fail",
+          "reason": "Federal law is the dominant screen-level blocker: EPBC Act s.140A bars approval for construction/operation of a nuclear power plant and ARPANS Act s.10 bars ARPANSA licensing; the site therefore fails the nuclear licensing entry gate regardless of otherwise attractive physical attributes.",
+          "citationIds": [
+            "au-epbc-140a",
+            "au-arpans-10",
+            "au-sa-prohibition"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-water-scarce",
+            "nt-pathway-ban"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "eVinci Microreactor is dry/air-cooled at screen level; the site cooling source is therefore not a primary siting constraint, though heat rejection and local thermal design must be confirmed. Site cooling note: Katherine River — seasonal tropical river; highly variable flow (wet: abundant, dry: minimal); not reliable for continuous cooling",
+          "citationIds": [
+            "nt-water-scarce",
+            "au-interior-water"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 0 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "nt-grid-isolated"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include flood-high, heat-extreme, seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-water-scarce",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-water-scarce",
+            "nt-pathway-ban"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "nt-grid-isolated",
+        "nt-water-scarce",
+        "nt-pathway-ban",
+        "au-epbc-140a",
+        "au-arpans-10",
+        "au-interior-water"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "au-nt-channel-island-darwin",
+      "siteName": "Channel Island Power Station / Darwin (gas turbine site — DKIS grid)",
+      "kind": "named",
+      "lat": -12.5,
+      "lng": 130.9,
+      "rank": 2,
+      "verdict": "fail",
+      "frictionScores": {
+        "grid": 0.05,
+        "cooling": 0.05,
+        "permits": 0.25,
+        "community": 0.15,
+        "logistics": 0.15,
+        "hazards": 0.75
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 30 ha against a 0.8 ha reactor envelope; land status: government utility land — Territory Generation; Darwin Harbour marine zone; Commonwealth environmental assessment required. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-pathway-ban"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "fail",
+          "reason": "Federal law is the dominant screen-level blocker: EPBC Act s.140A bars approval for construction/operation of a nuclear power plant and ARPANS Act s.10 bars ARPANSA licensing; the site therefore fails the nuclear licensing entry gate regardless of otherwise attractive physical attributes.",
+          "citationIds": [
+            "au-epbc-140a",
+            "au-arpans-10",
+            "au-sa-prohibition"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-pathway-ban",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "eVinci Microreactor is dry/air-cooled at screen level; the site cooling source is therefore not a primary siting constraint, though heat rejection and local thermal design must be confirmed. Site cooling note: Darwin Harbour seawater — tidal; tropical cyclone design requirements apply",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-pathway-ban"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 0 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "nt-grid-isolated"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "caution",
+          "reason": "Population density is marked low and hazards include cyclone-high, seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-pathway-ban",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-pathway-ban",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "nt-grid-isolated",
+        "nt-pathway-ban",
+        "au-epbc-140a",
+        "au-arpans-10"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "au-nt-palmerston-east-arm",
+      "siteName": "East Arm / Palmerston Industrial Zone (Darwin satellite — LNG precinct)",
+      "kind": "named",
+      "lat": -12.55,
+      "lng": 130.95,
+      "rank": 3,
+      "verdict": "fail",
+      "frictionScores": {
+        "grid": 0.15,
+        "cooling": 0.05,
+        "permits": 0.25,
+        "community": 0.15,
+        "logistics": 0.15,
+        "hazards": 0.75
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 100 ha against a 0.8 ha reactor envelope; land status: industrial Crown land — NT Government; LNG/gas infrastructure; complex permitting; nuclear banned. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-pathway-ban"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "fail",
+          "reason": "Federal law is the dominant screen-level blocker: EPBC Act s.140A bars approval for construction/operation of a nuclear power plant and ARPANS Act s.10 bars ARPANSA licensing; the site therefore fails the nuclear licensing entry gate regardless of otherwise attractive physical attributes.",
+          "citationIds": [
+            "au-epbc-140a",
+            "au-arpans-10",
+            "au-sa-prohibition"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-pathway-ban",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "eVinci Microreactor is dry/air-cooled at screen level; the site cooling source is therefore not a primary siting constraint, though heat rejection and local thermal design must be confirmed. Site cooling note: Darwin Harbour / East Arm tidal seawater — existing LNG water intake infrastructure nearby",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-pathway-ban"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 5 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "nt-grid-isolated"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "caution",
+          "reason": "Population density is marked low and hazards include cyclone-high, seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-pathway-ban",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "nt-grid-isolated",
+            "nt-pathway-ban",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "nt-grid-isolated",
+        "nt-pathway-ban",
+        "au-epbc-140a",
+        "au-arpans-10"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "au-nt-barkly-tablelands-remote",
+      "siteName": "Barkly Tablelands Remote Zone (greenfield — interior outback, no grid/water)",
+      "kind": "greenfield",
+      "lat": -19.5,
+      "lng": 135,
+      "rank": 4,
+      "verdict": "fail",
+      "frictionScores": {
+        "grid": 0.45,
+        "cooling": 0.05,
+        "permits": 0.4,
+        "community": 0.15,
+        "logistics": 0.7,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 10000 ha against a 0.8 ha reactor envelope; land status: NT Crown land / Aboriginal freehold — ~50% of NT is Aboriginal land under Aboriginal Land Rights (NT) Act 1976; FPIC required; nuclear banned. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "nt-land-outback"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "fail",
+          "reason": "Federal law is the dominant screen-level blocker: EPBC Act s.140A bars approval for construction/operation of a nuclear power plant and ARPANS Act s.10 bars ARPANSA licensing; the site therefore fails the nuclear licensing entry gate regardless of otherwise attractive physical attributes.",
+          "citationIds": [
+            "au-epbc-140a",
+            "au-arpans-10",
+            "au-sa-prohibition"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "nt-land-outback",
+            "nt-grid-isolated",
+            "nt-water-scarce"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "eVinci Microreactor is dry/air-cooled at screen level; the site cooling source is therefore not a primary siting constraint, though heat rejection and local thermal design must be confirmed. Site cooling note: dry/air-cooled only — no perennial surface water; median rainfall < 300 mm/yr; Cambrian Limestone Aquifer stressed",
+          "citationIds": [
+            "nt-water-scarce",
+            "au-interior-water"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "caution",
+          "reason": "Grid distance is 1000 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "nt-grid-isolated"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include heat-extreme, seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "nt-land-outback",
+            "nt-grid-isolated",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "caution",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "nt-land-outback",
+            "nt-grid-isolated",
+            "nt-water-scarce"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "nt-land-outback",
+        "nt-grid-isolated",
+        "nt-water-scarce",
+        "nt-pathway-ban",
+        "au-epbc-140a",
+        "au-arpans-10",
+        "au-interior-water"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "au-nt-tennant-creek-remote",
+      "siteName": "Tennant Creek Area (greenfield screen — central NT mineral province)",
+      "kind": "greenfield",
+      "lat": -19.65,
+      "lng": 134.19,
+      "rank": 5,
+      "verdict": "fail",
+      "frictionScores": {
+        "grid": 0.45,
+        "cooling": 0.05,
+        "permits": 0.4,
+        "community": 0.15,
+        "logistics": 0.7,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 2000 ha against a 0.8 ha reactor envelope; land status: NT Crown land / Aboriginal land — Warumungu country; pastoral leases; nuclear banned; FPIC required. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "nt-land-outback"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "fail",
+          "reason": "Federal law is the dominant screen-level blocker: EPBC Act s.140A bars approval for construction/operation of a nuclear power plant and ARPANS Act s.10 bars ARPANSA licensing; the site therefore fails the nuclear licensing entry gate regardless of otherwise attractive physical attributes.",
+          "citationIds": [
+            "au-epbc-140a",
+            "au-arpans-10",
+            "au-sa-prohibition"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "nt-land-outback",
+            "nt-grid-isolated",
+            "nt-water-scarce"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "eVinci Microreactor is dry/air-cooled at screen level; the site cooling source is therefore not a primary siting constraint, though heat rejection and local thermal design must be confirmed. Site cooling note: dry/air-cooled only — no perennial surface water; Tennant Creek receives ~400 mm/yr rainfall (highly seasonal)",
+          "citationIds": [
+            "nt-water-scarce"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "caution",
+          "reason": "Grid distance is 500 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "nt-grid-isolated"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include heat-extreme, seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "nt-population",
+            "nt-land-outback",
+            "nt-grid-isolated",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "caution",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "nt-land-outback",
+            "nt-grid-isolated",
+            "nt-water-scarce"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "nt-land-outback",
+        "nt-grid-isolated",
+        "nt-water-scarce",
+        "nt-population",
+        "nt-pathway-ban",
+        "au-epbc-140a",
+        "au-arpans-10"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "regionSummary": "Northern Territory has physically attractive sites for the selected reactor, but Australia has a dominant federal statutory prohibition: EPBC Act s.140A prevents approval for nuclear power plant construction/operation [au-epbc-140a], and ARPANS Act s.10 prevents ARPANSA from issuing the required licence [au-arpans-10]. The screen therefore marks every candidate as fail on Gate B, even where land, cooling, grid or logistics appear favourable.",
+  "nextStudies": [
+    "Confirm whether the project is intended to proceed only under a future law-reform scenario; under current corpus law, stop before detailed site spend.",
+    "Track federal and state statutory reform pathways before ranking physical sites as actionable.",
+    "Preserve candidate records as visualisation examples only, not viable project recommendations."
+  ],
+  "notes": "Screen-level triage only. Rankings use only the supplied corpus/site facts and citation IDs; they do not determine licensability, approvals, investment readiness, landowner consent, final engineering feasibility, or public acceptability."
+}
