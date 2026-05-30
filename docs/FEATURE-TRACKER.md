@@ -1,71 +1,103 @@
 # Nuclearer — Feature Tracker
 
-Single source of truth for what's built, what's next, and what's on the roadmap. Status legend:
-**✅ Done** · **🔜 Next (buildable now)** · **📋 Planned (product roadmap)** · **🧊 Backlog (deferred / complex)**
+Single source of truth for what's built, what's next, and what's on the roadmap.
 
-> Note: the screening engine already produces *screen-level friction scores* across grid / cooling / permits / community / logistics / hazards. Several "Planned" items below are about turning a given gate from a coarse proxy into a **dedicated, data-backed module** (its own dataset, scorer, and evidence output).
+**Build status:** ✅ Done · 🔜 Next (buildable now) · 📋 Planned · 🧊 Backlog (deferred/complex)
+
+**Compliance dependency** (who owns it):
+- **🔴 Regulatory — YOURS.** Core output is a legal/permitting judgment that must be cross-checked against statute & regulator docs. Plugs into your **legal-RAG pipeline** (via the `loadCorpus()` seam). You own these.
+- **🟢 Delegatable.** Core is an external data feed, market signal, or visualization — no legal interpretation. Hand to a teammate/vendor with a data source.
+- **🟡 Mixed.** A delegatable data layer feeding a regulatory judgment — split it: delegate the data, you keep the rule.
+
+> The screening engine already emits screen-level friction across grid/cooling/permits/community/logistics/hazards. Many items below upgrade one gate from a coarse proxy into a dedicated module.
 
 ---
 
 ## ✅ Done (shipped to `main`)
 
-| # | Feature | Notes |
-|---|---------|-------|
-| D1 | Interactive 3D globe (spin/zoom, admin-1 region select + highlight) | globe.gl |
-| D2 | Region roster + fly-to camera | dashboard buttons jump the globe |
-| D3 | Region Context — cited panels (land/legal/hazards) + ban alert | every fact sourced |
-| D4 | Reactor catalog (12 models / 7 families) + cascading picker | real cited specs |
-| D5 | Find Sites — site-finder analysis (ranked, scored, cited) | the headline |
-| D6 | Per-reactor tailoring (different reactor → different shortlist) | footprint/cooling driven |
-| D7 | Fatal-flaw / no-viable-sites detection (statutory ban) | Australia EPBC/ARPANS |
-| D8 | Citations everywhere + RAG-ready corpus seam | `loadCorpus()` swap-in |
-| D9 | Curated-answer cache (vetted LLM results, deterministic fallback) | demo-stable |
-| D10 | Results modal + larger dashboard typography | latest |
+| # | Feature | Dependency |
+|---|---------|:--:|
+| D1 | Interactive 3D globe (spin/zoom, region select + highlight) | 🟢 |
+| D2 | Region roster + fly-to camera | 🟢 |
+| D3 | Region Context — cited panels (land/legal/hazards) + ban alert | 🔴 |
+| D4 | Reactor catalog (12 models / 7 families) + picker | 🟢 |
+| D5 | Find Sites — site-finder analysis (ranked, scored, cited) | 🟡 |
+| D6 | Per-reactor tailoring (different reactor → different shortlist) | 🟢 |
+| D7 | Fatal-flaw / no-viable-sites detection (statutory ban) | 🔴 |
+| D8 | Citations everywhere + RAG-ready corpus seam | 🔴 |
+| D9 | Curated-answer cache (vetted LLM results, deterministic fallback) | 🟢 |
+| D10 | Results modal + larger dashboard typography | 🟢 |
 
 ---
 
-## 🔜 Next (buildable now, high demo value)
+## 🔜 Next (buildable now)
 
-| # | Feature | What it adds | Rough effort |
-|---|---------|--------------|--------------|
-| N1 | **Globe pins for found sites** | drop pass/caution/fail pins; click a result card → fly to its pin | S |
-| N2 | **Reactor-scaled exclusion/footprint ring** | draw the land a reactor must control, sized by real footprint (eVinci tiny → EPR huge) | S–M |
-| N3 | **"Land fit" readout per site** | required ha (reactor + buffer) vs available ha → fits/tight/insufficient | S |
-| N4 | **Chat panel (F6)** | floating LLM Q&A grounded in the region corpus; dynamic layout slide-left | M (speced) |
-| N5 | **Live LLM for uncached combos** | any region+reactor gets LLM-quality reasoning, not just the 7 curated | M |
+| # | Feature | Dependency | Owner |
+|---|---------|:--:|-------|
+| N1 | Globe pins for found sites | 🟢 | delegate |
+| N2 | Reactor-scaled **exclusion/footprint ring** | 🔴 | **you** — exclusion-area radius derives from regulatory source-term/dose rules (NRC 10 CFR 100) |
+| N3 | "Land fit" readout per site (required vs available ha) | 🟢 | delegate |
+| N4 | Chat panel (F6) — LLM Q&A grounded in region corpus | 🔴 | **you** — answers must cite real law (legal RAG) |
+| N5 | Live LLM reasoning for uncached combos | 🔴 | **you** — every claim cites statute (legal RAG) |
 
 ---
 
-## 📋 Planned — product roadmap (from POC pain-point analysis)
+## 📋 Planned — product roadmap (from POC pain points)
 
-Each maps to a real bottleneck that kills nuclear projects. Intensity = POC's how-much-it-hurts score.
-
-| # | Feature | Pain point | Intensity | What it is |
-|---|---------|-----------|:--:|------------|
-| P1 | **Grid interconnection plausibility scorer** | #1 grid reality | 10 | beyond proximity: queue position, upgrade-burden proxy, existing-switchyard advantage; flags repower sites |
-| P2 | **RulePack engine + versioning** | #2 permitting | 9 | computable jurisdiction rules + "requires human review" flags, with effective dates & change logs |
-| P3 | **Cooling/water permit-trigger engine** | #3 water | 9 | withdrawal/discharge permit flags, drought/heat overlays; dry vs wet pathway classifier (partial today) |
-| P4 | **Population & emergency-planning scorer** | #4 social license | 8 | population bands, sensitive receptors, access/evacuation practicality, EPZ sizing per reactor |
-| P5 | **Zoning & entitlements screener** | #5 zoning | 8 | allowed-use check + rezoning-friction score |
-| P6 | **Geohazard overlay engine** | #6 hazards | 7 | seismic/flood/liquefaction multi-hazard coupling + evidence appendix |
-| **P7** | **🚚 Supply-chain / construction-logistics tracker** | **#7 logistics** | 7 | **ports/rail/roads, heavy-haul & oversize-corridor feasibility, laydown footprint; the "can you physically get the components there" check** |
-| P8 | **Site scarcity index + optioning workflow tracker** | #8 competition | 6 | scarcity scoring + outreach status, exclusivity clocks, milestone gating |
-| P9 | **Evidence-pack / dossier export** | credibility (POC §8) | — | per-site PDF/HTML: maps, requirements matrix, risk register, next-studies |
-| P10 | **Real geospatial data layers** | foundation | — | live parcels, grid nodes, water bodies, protected areas, population — replaces curated candidate pool |
-| P11 | **Multi-jurisdiction expansion** | coverage | — | beyond USA / Poland / Australia |
+| # | Feature | Pain | Int. | Dependency | Owner |
+|---|---------|------|:--:|:--:|-------|
+| P1 | Grid interconnection plausibility scorer | grid | 10 | 🟢 | **delegate** — grid/queue data |
+| P2 | **RulePack engine + versioning** | permitting | 9 | 🔴 | **you** — the core legal feature |
+| P3 | Cooling/water **permit-trigger** engine | water | 9 | 🟡 | **you** keep permit rules · delegate hydrology data |
+| P4 | Population & **emergency-planning (EPZ)** scorer | social | 8 | 🟡 | **you** keep EPZ sizing rules · delegate population data |
+| P5 | **Zoning & entitlements** screener | zoning | 8 | 🔴 | **you** — local land-use law |
+| P6 | Geohazard overlay engine | hazards | 7 | 🟡 | delegate hazard data · **you** keep regulatory accept/reject thresholds |
+| P7 | 🚚 **Supply-chain / construction-logistics tracker** | logistics | 7 | 🟢 | **delegate** — Bloomberg/transport data |
+| P8 | Site scarcity index + optioning workflow | competition | 6 | 🟢 | **delegate** — market/CRM data |
+| P9 | Evidence-pack / dossier export | credibility | — | 🟡 | **you** own requirements matrix · delegate PDF/layout |
+| P10 | Real geospatial data layers (parcels/grid/water/protected) | foundation | — | 🟢 | **delegate** — GIS data |
+| P11 | Multi-jurisdiction expansion | coverage | — | 🔴 | **you** — each jurisdiction = new legal corpus |
 
 ---
 
 ## 🧊 Backlog (deferred — complex)
 
-| # | Feature | Why deferred |
-|---|---------|--------------|
-| B1 | **Cursor-as-footprint + click-anywhere pin-drop + radius search** | needs continuous GIS raster + px↔km scaling on a 3D globe + spatial search; see `FEATURE-BACKLOG.md` §1 |
+| # | Feature | Dependency |
+|---|---------|:--:|
+| B1 | Cursor-as-footprint + click-anywhere pin-drop + radius search | 🟡 (GIS raster + regulatory exclusion radius) |
 
 ---
 
-## On "supply-chain tracker" specifically (P7)
+## 🔴 Your scope — regulatory features (legal-RAG)
 
-This wasn't previously tracked — it lives in the POC's pain-point list as **construction logistics** (#7). For a nuclear build, moving reactor pressure vessels, steam generators, and turbines is a real siting constraint: you need port/rail/heavy-haul access and oversize-load corridors, or the site is a non-starter regardless of grid or water. Today the engine scores "logistics" as a coarse friction gate; **P7 would make it a dedicated module** — transport-corridor feasibility, heavy-haul routing proxies, and laydown-area checks against the reactor's component sizes — and feed the evidence pack (P9).
+These need cross-checking against regulatory/statute docs; they ride your existing legal-RAG pipeline through `loadCorpus()`:
 
-If you want this as the next build instead of the visual features (N1–N3), say so and I'll spec it.
+- **D3 / D7 / D8** — cited region context, statutory-ban detection, the citation backbone *(done)*
+- **N2** — exclusion-area ring (the radius is a regulatory derivation)
+- **N4 / N5** — chat + live reasoning (every answer cites law)
+- **P2** — RulePack engine + versioning *(the heart of compliance)*
+- **P3** — water/discharge permit triggers (you keep the rules)
+- **P4** — EPZ sizing rules
+- **P5** — zoning/entitlement law
+- **P9** — the regulatory requirements-matrix in the dossier
+- **P11** — new-jurisdiction legal corpora
+
+---
+
+## 🟢 Delegation roster — non-regulatory features (external data/tooling)
+
+Each is a data-feed or visualization problem with a clear external source. Hand off with the source named.
+
+| Feature | Delegate to (external source/tool) |
+|---------|-----------------------------------|
+| **P7 Supply-chain / logistics** | **Bloomberg Terminal** (commodities, shipping, vendor lead-times) + transport-corridor / heavy-haul routing data |
+| **P1 Grid interconnection** | **ISO/RTO interconnection-queue feeds** (PJM, MISO, CAISO, ERCOT) or a grid-data product like **Hitachi Velocity Suite / GridStatus** — queue position + upgrade-burden proxies |
+| **P6 / P10 Geohazard + geospatial layers** | **Geospatial/hazard data services** — USGS (seismic), FEMA (flood), **Regrid** (parcels), plus catastrophe-risk feeds (Moody's RMS / Munich Re NATHAN) for the hazard overlays |
+| P8 Scarcity + optioning | Land/real-estate market data + a CRM (outreach, exclusivity clocks) |
+| N1 Globe pins · N3 Land-fit · P9 layout | Frontend/data-viz — pure engineering |
+
+**You asked for 2 more delegatable examples beyond the Bloomberg supply-chain tracker:**
+1. **Grid interconnection (P1)** → an **ISO/RTO queue-data terminal** (PJM/MISO/CAISO feeds or GridStatus). Pure utility data — proximity, queue depth, upgrade-cost proxies — no legal interpretation.
+2. **Geohazard + geospatial layers (P6/P10)** → **hazard/GIS data services** (USGS seismic, FEMA flood, Regrid parcels). The *data overlay* is delegatable; you keep only the regulatory accept/reject threshold.
+
+(Bonus: **P8 optioning/scarcity** → a real-estate market feed + CRM.)
