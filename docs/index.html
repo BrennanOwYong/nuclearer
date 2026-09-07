@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuclearer — Screen-level site intelligence for nuclear builds</title>
+<meta name="description" content="Spin the globe, pick a reactor, and see which sites survive the fatal constraints. Ranked, scored, cited screen-level nuclear site screening.">
+<style>
+  :root {
+    --bg: #05070d;
+    --panel: rgba(8, 12, 22, 0.9);
+    --panel-solid: rgba(10, 15, 27, 0.98);
+    --hairline: rgba(99, 130, 200, 0.28);
+    --hairline-soft: rgba(99, 130, 200, 0.15);
+    --accent: #3b82f6;
+    --accent-deep: #1d4ed8;
+    --heading: #93c5fd;
+    --body: #c8d8f0;
+    --muted: #7898c0;
+    --dim: #5a7090;
+    --dimmer: #4a6080;
+    --pass: #4ade80;
+    --caution: #fbbf24;
+    --fail: #f87171;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--body);
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── Starfield ─────────────────────────────────────────────── */
+  #starfield {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── Hero ──────────────────────────────────────────────────── */
+  .hero {
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 0 60px;
+  }
+
+  .hero-orb {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-bottom: 40px;
+    background:
+      radial-gradient(circle at 32% 30%, rgba(147, 197, 253, 0.35), transparent 42%),
+      radial-gradient(circle at 60% 65%, rgba(29, 78, 216, 0.55), transparent 60%),
+      radial-gradient(circle at 50% 50%, rgba(15, 30, 60, 0.95), #060a14 75%);
+    border: 1px solid var(--hairline);
+    box-shadow:
+      0 0 60px rgba(59, 130, 246, 0.25),
+      0 0 140px rgba(29, 78, 216, 0.15),
+      inset 0 0 40px rgba(59, 130, 246, 0.12);
+    position: relative;
+    animation: orb-drift 9s ease-in-out infinite;
+  }
+
+  .hero-orb::after {
+    content: '';
+    position: absolute;
+    inset: -14px;
+    border-radius: 50%;
+    border: 1px dashed rgba(99, 130, 200, 0.22);
+    animation: orb-ring 40s linear infinite;
+  }
+
+  @keyframes orb-drift {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes orb-ring {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 8vw, 64px);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--heading);
+    margin-bottom: 18px;
+  }
+
+  .hero .tagline {
+    font-size: clamp(18px, 3vw, 22px);
+    color: var(--body);
+    max-width: 640px;
+    margin-bottom: 14px;
+  }
+
+  .hero .subtag {
+    font-size: 14px;
+    color: var(--dim);
+    max-width: 560px;
+    margin-bottom: 36px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--hairline);
+    transition: background 0.15s, transform 0.12s, border-color 0.15s;
+    font-family: inherit;
+  }
+
+  .btn-primary {
+    background: var(--accent-deep);
+    border-color: var(--accent);
+    color: #eff6ff;
+  }
+
+  .btn-primary:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .btn-ghost {
+    background: rgba(59, 130, 246, 0.12);
+    color: #bfdbfe;
+  }
+
+  .btn-ghost:hover {
+    background: rgba(59, 130, 246, 0.24);
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  /* ── Sections ──────────────────────────────────────────────── */
+  section { padding: 56px 0; }
+
+  .kicker {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: clamp(26px, 4.5vw, 34px);
+    font-weight: 600;
+    color: var(--heading);
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .glass {
+    background: var(--panel);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.65);
+    padding: 28px;
+  }
+
+  .lede {
+    font-size: 18px;
+    color: var(--body);
+    margin-bottom: 18px;
+  }
+
+  .lede strong { color: var(--heading); }
+
+  /* ── Constraint chips ─────────────────────────────────────── */
+  .constraints {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    margin: 22px 0;
+  }
+
+  .constraint {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+    background: rgba(15, 22, 40, 0.7);
+    border: 1px solid rgba(99, 130, 200, 0.18);
+    border-radius: 8px;
+    font-size: 14px;
+    color: #9ab8d8;
+    transition: transform 0.12s, box-shadow 0.12s;
+  }
+
+  .constraint:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
+
+  .constraint .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--fail);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .constraint b {
+    color: var(--body);
+    font-weight: 600;
+    display: block;
+  }
+
+  .guardrail {
+    margin-top: 22px;
+    padding: 14px 16px;
+    background: rgba(74, 222, 128, 0.07);
+    border: 1px solid rgba(74, 222, 128, 0.25);
+    border-radius: 8px;
+    font-size: 14px;
+    color: #9ab8d8;
+  }
+
+  .guardrail b { color: var(--pass); }
+
+  /* ── Pathways ─────────────────────────────────────────────── */
+  .pathways {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .pathway {
+    padding: 16px;
+    background: rgba(15, 22, 40, 0.7);
+    border: 1px solid rgba(99, 130, 200, 0.18);
+    border-radius: 8px;
+  }
+
+  .pathway h3 {
+    font-size: 15px;
+    color: var(--heading);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  .pathway p { font-size: 13px; color: #8aaccb; }
+
+  /* ── Product walk ─────────────────────────────────────────── */
+  .steps { display: flex; flex-direction: column; gap: 14px; margin-top: 6px; }
+
+  .step {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .step-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(59, 130, 246, 0.14);
+    border: 1px solid var(--hairline);
+    color: var(--heading);
+    font-weight: 700;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step h3 { font-size: 16px; color: var(--body); font-weight: 600; margin-bottom: 2px; }
+  .step p { font-size: 14px; color: #8aaccb; }
+
+  /* ── Verdict demo strip ───────────────────────────────────── */
+  .verdict-strip {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .verdict-badge {
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .verdict-badge.pass { background: rgba(74, 222, 128, 0.2); color: var(--pass); }
+  .verdict-badge.caution { background: rgba(251, 191, 36, 0.2); color: var(--caution); }
+  .verdict-badge.fail { background: rgba(239, 68, 68, 0.2); color: var(--fail); }
+
+  /* ── Architecture ─────────────────────────────────────────── */
+  .stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 24px;
+  }
+
+  .stack-tag {
+    padding: 5px 12px;
+    background: rgba(20, 30, 50, 0.9);
+    border: 1px solid rgba(99, 130, 200, 0.3);
+    border-radius: 14px;
+    color: var(--body);
+    font-size: 13px;
+  }
+
+  .arch-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+  }
+
+  .arch-col {
+    padding: 16px;
+    background: rgba(15, 22, 40, 0.7);
+    border: 1px solid rgba(99, 130, 200, 0.18);
+    border-radius: 8px;
+  }
+
+  .arch-col h3 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 10px;
+  }
+
+  .arch-col ul { list-style: none; }
+  .arch-col li {
+    font-size: 14px;
+    color: #9ab8d8;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(99, 130, 200, 0.08);
+  }
+  .arch-col li:last-child { border-bottom: none; }
+  .arch-col li b { color: var(--body); font-weight: 600; }
+
+  /* ── Future developments ──────────────────────────────────── */
+  .future-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  #toggle-roadmap {
+    background: var(--accent-deep);
+    border: 1px solid var(--accent);
+    color: #eff6ff;
+    padding: 11px 22px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.12s;
+  }
+
+  #toggle-roadmap:hover { background: #2563eb; transform: translateY(-1px); }
+  #toggle-roadmap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  #toggle-roadmap.loading { animation: pulse-bg 1.2s ease-in-out infinite; }
+
+  @keyframes pulse-bg {
+    0%, 100% { background: var(--accent-deep); }
+    50% { background: var(--accent); }
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+
+  .feature-card {
+    padding: 16px;
+    background: rgba(15, 22, 40, 0.7);
+    border: 1px solid rgba(99, 130, 200, 0.18);
+    border-radius: 8px;
+    transition: transform 0.12s, box-shadow 0.12s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
+
+  .feature-card .tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+
+  .tag.done { background: rgba(74, 222, 128, 0.2); color: var(--pass); }
+  .tag.next { background: rgba(59, 130, 246, 0.2); color: var(--heading); }
+  .tag.planned { background: rgba(251, 191, 36, 0.2); color: var(--caution); }
+
+  .feature-card h3 { font-size: 15px; font-weight: 600; color: var(--body); margin-bottom: 4px; }
+  .feature-card p { font-size: 13px; color: #8aaccb; }
+
+  .feature-card .friction-track {
+    height: 5px;
+    background: rgba(99, 130, 200, 0.12);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 12px;
+  }
+
+  .feature-card .friction-fill {
+    height: 100%;
+    border-radius: 3px;
+    width: 0;
+    max-width: 100%;
+  }
+
+  .friction-fill.low { background: var(--pass); }
+  .friction-fill.mid { background: var(--caution); }
+  .friction-fill.high { background: var(--fail); }
+
+  .friction-note {
+    font-size: 10px;
+    color: var(--dimmer);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 5px;
+  }
+
+  #roadmap-view { display: none; }
+
+  .roadmap-sub {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin: 24px 0 12px;
+  }
+
+  .roadmap-sub:first-child { margin-top: 0; }
+
+  /* ── Footer ───────────────────────────────────────────────── */
+  footer {
+    padding: 48px 0 60px;
+    border-top: 1px solid var(--hairline-soft);
+    text-align: center;
+    font-size: 14px;
+    color: var(--dim);
+  }
+
+  footer p { margin-bottom: 8px; }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .glass { padding: 20px 16px; }
+    .hero-orb { width: 130px; height: 130px; }
+    .step { grid-template-columns: 36px 1fr; gap: 10px; }
+    .step-num { width: 36px; height: 36px; font-size: 15px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-orb, .hero-orb::after, #toggle-roadmap.loading { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="starfield" aria-hidden="true"></canvas>
+
+<div class="page">
+
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <header class="hero">
+    <div class="hero-orb" aria-hidden="true"></div>
+    <h1>Nuclearer</h1>
+    <p class="tagline">Nuclear projects die on fatal siting constraints discovered late, not on land. Nuclearer surfaces them in week one: ranked, scored, cited.</p>
+    <p class="subtag">An interactive 3D globe plus a screen-level site-screening engine for SMR, coal-to-nuclear repower, and large new-build pathways.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://github.com/BrennanOwYong/nuclearer">View on GitHub</a>
+      <a class="btn btn-ghost" href="#future">Future developments →</a>
+    </div>
+  </header>
+
+  <!-- ── Problem ──────────────────────────────────────────────── -->
+  <section id="problem">
+    <div class="glass">
+      <p class="kicker">The problem</p>
+      <h2>Land is not the bottleneck. The site readiness bundle is.</h2>
+      <p class="lede">Nuclear projects are delayed or killed less by the availability of land and more by the availability of a <strong>site readiness bundle</strong>. Teams waste months pursuing sites that fail on one or two fatal constraints discovered late.</p>
+      <div class="constraints">
+        <div class="constraint"><span class="dot"></span><span><b>Grid interconnection reality</b>queue position, upgrade capex, timeline — lines nearby ≠ capacity</span></div>
+        <div class="constraint"><span class="dot"></span><span><b>Cooling &amp; water constraints</b>rights, discharge limits, drought and heat — water access isn't permission</span></div>
+        <div class="constraint"><span class="dot"></span><span><b>Zoning &amp; entitlements</b>rezoning likelihood, long and uncertain approval cycles</span></div>
+        <div class="constraint"><span class="dot"></span><span><b>Environmental permitting triggers</b>EIA/ESIA thresholds create schedule and litigation risk</span></div>
+        <div class="constraint"><span class="dot"></span><span><b>Geohazards</b>seismic, flood, liquefaction, multi-hazard coupling — can be fatal late</span></div>
+        <div class="constraint"><span class="dot"></span><span><b>Emergency planning practicality</b>population, access, evacuation feasibility</span></div>
+        <div class="constraint"><span class="dot"></span><span><b>Social &amp; political acceptance</b>opposition and litigation risk can stall projects for years</span></div>
+      </div>
+      <div class="pathways">
+        <div class="pathway"><h3>SMR</h3><p>Smaller footprints, modular logistics, flexible cooling — still subject to licensing, grid, and security realities.</p></div>
+        <div class="pathway"><h3>Coal-to-nuclear repower</h3><p>Reuses switchyard, water intakes, and industrial zoning, but carries legacy contamination, permits, and community politics.</p></div>
+        <div class="pathway"><h3>Large new build</h3><p>Larger footprints, stronger cooling needs, highest regulatory scrutiny — coastal/river sites and energy corridors.</p></div>
+      </div>
+      <div class="guardrail"><b>Operational guardrail:</b> Nuclearer never claims "permit-approved" or "licensable" results. Every output uses screen-level language, labels its assumptions, and attaches confidence and data provenance.</div>
+    </div>
+  </section>
+
+  <!-- ── Product ──────────────────────────────────────────────── -->
+  <section id="product">
+    <div class="glass">
+      <p class="kicker">The product</p>
+      <h2>Spin the globe. Pick a reactor. Screen the sites.</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div><h3>Interactive 3D globe</h3><p>Click a region and the camera flies there. Selected regions highlight; a region roster gives one-click navigation.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div><h3>Region context, cited</h3><p>A floating glassmorphic dashboard shows expandable fact panels — land, legal, hazards — each linked to its source with a confidence level. Statutory bans raise an explicit alert.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3>Reactor catalog</h3><p>12 reactor models across 7 families, each with footprint, cooling, and logistics specs, with citations.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h3>Find Sites</h3><p>A ranked shortlist per reactor+region combo: friction bars across grid, cooling, permits, community, and logistics; a per-constraint matrix with reasons and citations; a confidence level and a next-studies list.</p></div></div>
+        <div class="step"><div class="step-num">5</div><div><h3>Fatal-flaw detection</h3><p>Regions with a statutory ban return no viable sites and say why, with the statute cited. A different reactor produces a different shortlist.</p></div></div>
+      </div>
+      <div class="verdict-strip" aria-hidden="true">
+        <span class="verdict-badge pass">Pass</span>
+        <span class="verdict-badge caution">Caution</span>
+        <span class="verdict-badge fail">Fail</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How it was built ─────────────────────────────────────── -->
+  <section id="built">
+    <div class="glass">
+      <p class="kicker">How it was built</p>
+      <h2>LLM reasoning behind a curated cache, citations as a first-class type</h2>
+      <div class="stack-tags">
+        <span class="stack-tag">React 18</span>
+        <span class="stack-tag">TypeScript</span>
+        <span class="stack-tag">Vite</span>
+        <span class="stack-tag">globe.gl</span>
+        <span class="stack-tag">three.js</span>
+        <span class="stack-tag">Express</span>
+        <span class="stack-tag">OpenAI SDK</span>
+        <span class="stack-tag">react-markdown</span>
+        <span class="stack-tag">Vitest</span>
+        <span class="stack-tag">Playwright</span>
+      </div>
+      <div class="arch-cols">
+        <div class="arch-col">
+          <h3>Frontend</h3>
+          <ul>
+            <li><b>Globe</b> — globe.gl + three.js, region selection, fly-to camera</li>
+            <li><b>Dashboard</b> — region roster, fact panels, reactor picker, site finder, results modal</li>
+            <li><b>Design system</b> — dark glassmorphism, pass/caution/fail verdict language, animated friction bars</li>
+          </ul>
+        </div>
+        <div class="arch-col">
+          <h3>Backend</h3>
+          <ul>
+            <li><b>Express API</b> — site-finder orchestration</li>
+            <li><b>LLM reasoning path</b> — OpenAI for uncached region+reactor combos</li>
+            <li><b>Curated-answer cache</b> — vetted analyses served deterministically; the LLM is the fallback, so demos never depend on a live model call and vetted answers never drift</li>
+          </ul>
+        </div>
+        <div class="arch-col">
+          <h3>Citation backbone</h3>
+          <ul>
+            <li><b>Citations everywhere</b> — every fact panel, matrix row, and reactor spec resolves through a citation layer</li>
+            <li><b>loadCorpus() seam</b> — isolates where region legal text enters the system, built as the attachment point for a legal-RAG pipeline over real statute</li>
+            <li><b>Confidence levels</b> — high / medium / low on every conclusion, plus a next-studies list</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Future developments ──────────────────────────────────── -->
+  <section id="future">
+    <div class="glass">
+      <div class="future-head">
+        <div>
+          <p class="kicker">Future developments</p>
+          <h2 style="margin-bottom:0" id="future-title">Shipped today</h2>
+        </div>
+        <button id="toggle-roadmap" type="button" aria-expanded="false" aria-controls="roadmap-view">What's Next →</button>
+      </div>
+
+      <!-- Default view: today's shipped feature set (FEATURE-TRACKER.md, Done) -->
+      <div id="done-view">
+        <div class="feature-grid">
+          <div class="feature-card"><span class="tag done">Shipped</span><h3>Interactive 3D globe</h3><p>Spin/zoom, region select and highlight, fly-to camera with a region roster.</p></div>
+          <div class="feature-card"><span class="tag done">Shipped</span><h3>Region context, cited</h3><p>Land / legal / hazard fact panels with citations and a statutory-ban alert.</p></div>
+          <div class="feature-card"><span class="tag done">Shipped</span><h3>Reactor catalog</h3><p>12 models across 7 families with a picker and cited construction specs.</p></div>
+          <div class="feature-card"><span class="tag done">Shipped</span><h3>Find Sites</h3><p>Ranked, scored, cited site-finder analysis with friction bars and verdict badges.</p></div>
+          <div class="feature-card"><span class="tag done">Shipped</span><h3>Per-reactor tailoring</h3><p>A different reactor produces a different shortlist.</p></div>
+          <div class="feature-card"><span class="tag done">Shipped</span><h3>Fatal-flaw detection</h3><p>Statutory bans return no viable sites, with the statute cited.</p></div>
+          <div class="feature-card"><span class="tag done">Shipped</span><h3>Citation backbone</h3><p>Citations everywhere plus a RAG-ready corpus seam (loadCorpus).</p></div>
+          <div class="feature-card"><span class="tag done">Shipped</span><h3>Curated-answer cache</h3><p>Vetted LLM results served deterministically; live LLM as fallback.</p></div>
+          <div class="feature-card"><span class="tag done">Shipped</span><h3>Results modal</h3><p>Full-screen analysis view with larger dashboard typography.</p></div>
+        </div>
+      </div>
+
+      <!-- Roadmap view: Next + Planned (FEATURE-TRACKER.md) -->
+      <div id="roadmap-view">
+        <p class="roadmap-sub">Next — buildable now</p>
+        <div class="feature-grid">
+          <div class="feature-card roadmap-card"><span class="tag next">Next</span><h3>Globe pins for found sites</h3><p>Drop each shortlisted site onto the globe.</p></div>
+          <div class="feature-card roadmap-card"><span class="tag next">Next</span><h3>Exclusion / footprint rings</h3><p>Reactor-scaled exclusion-area radius derived from regulatory source-term/dose rules (NRC 10 CFR 100).</p></div>
+          <div class="feature-card roadmap-card"><span class="tag next">Next</span><h3>Land-fit readout</h3><p>Required vs available hectares per site.</p></div>
+          <div class="feature-card roadmap-card"><span class="tag next">Next</span><h3>Chat panel</h3><p>LLM Q&amp;A grounded in the region corpus — every answer cites real law.</p></div>
+          <div class="feature-card roadmap-card"><span class="tag next">Next</span><h3>Live LLM reasoning</h3><p>Uncached region+reactor combos analyzed live, every claim citing statute.</p></div>
+        </div>
+
+        <p class="roadmap-sub">Planned — ranked by POC pain-point intensity</p>
+        <div class="feature-grid">
+          <div class="feature-card roadmap-card">
+            <span class="tag planned">Planned</span><h3>Grid interconnection scorer</h3><p>Queue position and upgrade-burden plausibility — the #1 project killer.</p>
+            <div class="friction-track"><div class="friction-fill high" data-fill="100"></div></div><div class="friction-note">Pain intensity 10 / 10</div>
+          </div>
+          <div class="feature-card roadmap-card">
+            <span class="tag planned">Planned</span><h3>RulePack engine + versioning</h3><p>Jurisdiction rules as computable tests with citations and effective dates.</p>
+            <div class="friction-track"><div class="friction-fill high" data-fill="90"></div></div><div class="friction-note">Pain intensity 9 / 10</div>
+          </div>
+          <div class="feature-card roadmap-card">
+            <span class="tag planned">Planned</span><h3>Cooling / water permit-trigger engine</h3><p>Withdrawal rights, discharge limits, drought and heat flags.</p>
+            <div class="friction-track"><div class="friction-fill high" data-fill="90"></div></div><div class="friction-note">Pain intensity 9 / 10</div>
+          </div>
+          <div class="feature-card roadmap-card">
+            <span class="tag planned">Planned</span><h3>Emergency-planning (EPZ) scorer</h3><p>Population, sensitive receptors, access/evacuation practicality.</p>
+            <div class="friction-track"><div class="friction-fill mid" data-fill="80"></div></div><div class="friction-note">Pain intensity 8 / 10</div>
+          </div>
+          <div class="feature-card roadmap-card">
+            <span class="tag planned">Planned</span><h3>Zoning &amp; entitlements screener</h3><p>Rezoning likelihood and entitlement friction scoring.</p>
+            <div class="friction-track"><div class="friction-fill mid" data-fill="80"></div></div><div class="friction-note">Pain intensity 8 / 10</div>
+          </div>
+          <div class="feature-card roadmap-card">
+            <span class="tag planned">Planned</span><h3>Geohazard overlay engine</h3><p>Seismic, flood, liquefaction overlays with regulatory accept/reject thresholds.</p>
+            <div class="friction-track"><div class="friction-fill mid" data-fill="70"></div></div><div class="friction-note">Pain intensity 7 / 10</div>
+          </div>
+          <div class="feature-card roadmap-card">
+            <span class="tag planned">Planned</span><h3>Construction-logistics tracker</h3><p>Ports, rail, heavy haul, laydown, and supply-chain lead times.</p>
+            <div class="friction-track"><div class="friction-fill mid" data-fill="70"></div></div><div class="friction-note">Pain intensity 7 / 10</div>
+          </div>
+          <div class="feature-card roadmap-card">
+            <span class="tag planned">Planned</span><h3>Scarcity index + optioning</h3><p>Site competition signals and an optioning workflow tracker.</p>
+            <div class="friction-track"><div class="friction-fill low" data-fill="60"></div></div><div class="friction-note">Pain intensity 6 / 10</div>
+          </div>
+          <div class="feature-card roadmap-card"><span class="tag planned">Planned</span><h3>Evidence-pack export</h3><p>Per-site dossier: requirements matrix, maps, risk register, next studies.</p></div>
+          <div class="feature-card roadmap-card"><span class="tag planned">Planned</span><h3>Real geospatial layers</h3><p>Parcels, grid nodes, water bodies, protected areas, population.</p></div>
+          <div class="feature-card roadmap-card"><span class="tag planned">Planned</span><h3>Multi-jurisdiction expansion</h3><p>Each jurisdiction adds a new legal corpus through the loadCorpus seam.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><a href="https://github.com/BrennanOwYong/nuclearer">github.com/BrennanOwYong/nuclearer</a></p>
+    <p>Screen-level down-selection and risk triage. Never a licensability claim.</p>
+  </footer>
+
+</div>
+
+<!--
+  anime.js v3.2.2 (UMD, global `anime`) via jsDelivr:
+  https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js
+  Verified 2026-08-27: URL serves "anime.js v3.2.2 (c) 2023 Julian Garnier" with HTTP 200.
+  Official docs (https://animejs.com/documentation/getting-started/installation) now document
+  the v4 API (named exports, dist/bundles path); this page pins v3.2.2 for the stable
+  global-object API (anime({targets, ...})).
+-->
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── Starfield ─────────────────────────────────────────────── */
+  var canvas = document.getElementById('starfield');
+  var ctx = canvas.getContext('2d');
+  var stars = [];
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function seedStars() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = [];
+    var count = Math.min(220, Math.floor(canvas.width * canvas.height / 6500));
+    for (var i = 0; i < count; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.3 + 0.2,
+        base: Math.random() * 0.5 + 0.15,
+        phase: Math.random() * Math.PI * 2,
+        speed: Math.random() * 0.9 + 0.3
+      });
+    }
+  }
+
+  function drawStars(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var i = 0; i < stars.length; i++) {
+      var s = stars[i];
+      var a = reduceMotion ? s.base : s.base * (0.6 + 0.4 * Math.sin(s.phase + t * 0.001 * s.speed));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(147, 197, 253, ' + a.toFixed(3) + ')';
+      ctx.fill();
+    }
+    if (!reduceMotion) requestAnimationFrame(drawStars);
+  }
+
+  seedStars();
+  window.addEventListener('resize', seedStars);
+  requestAnimationFrame(drawStars);
+
+  /* ── Future developments toggle ────────────────────────────── */
+  var btn = document.getElementById('toggle-roadmap');
+  var doneView = document.getElementById('done-view');
+  var roadmapView = document.getElementById('roadmap-view');
+  var title = document.getElementById('future-title');
+  var showingRoadmap = false;
+  var animating = false;
+  var hasAnime = typeof anime === 'function';
+
+  function showRoadmap() {
+    doneView.style.display = 'none';
+    roadmapView.style.display = 'block';
+    title.textContent = "What's next";
+    btn.textContent = '← Shipped today';
+    btn.setAttribute('aria-expanded', 'true');
+
+    if (!hasAnime || reduceMotion) {
+      // Static fallback: show bars at their final widths.
+      roadmapView.querySelectorAll('.friction-fill').forEach(function (el) {
+        el.style.width = el.getAttribute('data-fill') + '%';
+      });
+      animating = false;
+      return;
+    }
+
+    var cards = roadmapView.querySelectorAll('.roadmap-card');
+    // Staggered card entrance: translateY + opacity + slight scale, easeOutExpo.
+    anime.set(cards, { opacity: 0, translateY: 22, scale: 0.97 });
+    anime({
+      targets: cards,
+      opacity: [0, 1],
+      translateY: [22, 0],
+      scale: [0.97, 1],
+      easing: 'easeOutExpo',
+      duration: 700,
+      delay: anime.stagger(45),
+      complete: function () { animating = false; }
+    });
+    // Friction-bar fills, echoing the app's animated friction bars.
+    roadmapView.querySelectorAll('.friction-fill').forEach(function (el, i) {
+      el.style.width = '0%';
+      anime({
+        targets: el,
+        width: el.getAttribute('data-fill') + '%',
+        easing: 'easeOutExpo',
+        duration: 900,
+        delay: 300 + i * 60
+      });
+    });
+  }
+
+  function showDone() {
+    roadmapView.style.display = 'none';
+    doneView.style.display = 'block';
+    title.textContent = 'Shipped today';
+    btn.textContent = "What's Next →";
+    btn.setAttribute('aria-expanded', 'false');
+
+    if (!hasAnime || reduceMotion) { animating = false; return; }
+
+    var cards = doneView.querySelectorAll('.feature-card');
+    anime.set(cards, { opacity: 0, translateY: 14 });
+    anime({
+      targets: cards,
+      opacity: [0, 1],
+      translateY: [14, 0],
+      easing: 'easeOutExpo',
+      duration: 500,
+      delay: anime.stagger(30),
+      complete: function () { animating = false; }
+    });
+  }
+
+  btn.addEventListener('click', function () {
+    if (animating) return;
+    animating = true;
+    showingRoadmap = !showingRoadmap;
+
+    if (!hasAnime || reduceMotion) {
+      showingRoadmap ? showRoadmap() : showDone();
+      return;
+    }
+
+    // Fade the current view out, then bring the other in.
+    var current = showingRoadmap ? doneView : roadmapView;
+    anime({
+      targets: current,
+      opacity: [1, 0],
+      translateY: [0, -10],
+      easing: 'easeInQuad',
+      duration: 180,
+      complete: function () {
+        current.style.opacity = '';
+        current.style.transform = '';
+        showingRoadmap ? showRoadmap() : showDone();
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
