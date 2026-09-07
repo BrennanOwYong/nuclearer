@@ -1,4 +1,5 @@
 import type { AnalyzeRequest, AnalysisResult, ChatRequest, ChatResponse } from './types';
+import { getStaticAnalysis } from './data/staticAnalyses';
 
 async function postJson<TReq, TRes>(url: string, body: TReq): Promise<TRes> {
   const res = await fetch(url, {
@@ -20,6 +21,12 @@ async function postJson<TReq, TRes>(url: string, body: TReq): Promise<TRes> {
 }
 
 export function postAnalyze(req: AnalyzeRequest): Promise<AnalysisResult> {
+  if (import.meta.env.PROD) {
+    const result = getStaticAnalysis(req);
+    return result
+      ? Promise.resolve(result)
+      : Promise.reject(new Error('This Pages demo includes curated analyses for the showcased region/reactor combinations.'));
+  }
   return postJson<AnalyzeRequest, AnalysisResult>('/api/analyze', req);
 }
 
