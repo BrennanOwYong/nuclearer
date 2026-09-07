@@ -1,0 +1,536 @@
+{
+  "country": "AUS",
+  "regionId": "AU-SA",
+  "reactorId": "xenergy-xe100",
+  "pathway": "greenfield",
+  "sites": [
+    {
+      "siteId": "au-sa-port-augusta-playford",
+      "siteName": "Playford B Power Station Site / Port Augusta (retired coal, ElectraNet grid)",
+      "kind": "named",
+      "lat": -32.54,
+      "lng": 137.755,
+      "rank": 1,
+      "verdict": "fail",
+      "frictionScores": {
+        "grid": 0.05,
+        "cooling": 0.15,
+        "permits": 0.25,
+        "community": 0.15,
+        "logistics": 0.1,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 150 ha against a 5 ha reactor envelope; land status: retired coal (brownfield) — state land; same Port Paterson precinct as Northern station. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "sa-land-arid"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "fail",
+          "reason": "Federal law is the dominant screen-level blocker: EPBC Act s.140A bars approval for construction/operation of a nuclear power plant and ARPANS Act s.10 bars ARPANSA licensing; the site therefore fails the nuclear licensing entry gate regardless of otherwise attractive physical attributes.",
+          "citationIds": [
+            "au-epbc-140a",
+            "au-arpans-10",
+            "au-sa-prohibition"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-grid-renewables",
+            "sa-water-scarce"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Spencer Gulf seawater (via Northern Power Station shared cooling infrastructure corridor). Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "sa-water-scarce"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 0 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "sa-grid-renewables"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-grid-renewables",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "G. Repower-specific",
+          "verdict": "caution",
+          "reason": "Brownfield/repower advantages may include existing land, roads, workforce, water corridors and switchyards, but remediation, legacy liabilities, permit transferability and demolition interfaces require diligence.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-grid-renewables"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-grid-renewables",
+            "sa-water-scarce"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "sa-land-arid",
+        "sa-grid-renewables",
+        "sa-water-scarce",
+        "sa-pathway-ban",
+        "au-epbc-140a",
+        "au-arpans-10"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "au-sa-port-augusta-northern",
+      "siteName": "Northern Power Station Site / Port Augusta (retired coal brownfield)",
+      "kind": "named",
+      "lat": -32.55,
+      "lng": 137.76,
+      "rank": 2,
+      "verdict": "fail",
+      "frictionScores": {
+        "grid": 0.05,
+        "cooling": 0.15,
+        "permits": 0.25,
+        "community": 0.15,
+        "logistics": 0.15,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 200 ha against a 5 ha reactor envelope; land status: retired coal (brownfield) — state-owned land; demolished; site available for adaptive reuse. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "sa-land-arid"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "fail",
+          "reason": "Federal law is the dominant screen-level blocker: EPBC Act s.140A bars approval for construction/operation of a nuclear power plant and ARPANS Act s.10 bars ARPANSA licensing; the site therefore fails the nuclear licensing entry gate regardless of otherwise attractive physical attributes.",
+          "citationIds": [
+            "au-epbc-140a",
+            "au-arpans-10",
+            "au-sa-prohibition"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-grid-renewables",
+            "sa-water-scarce"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Spencer Gulf (tidal inlet) — seawater cooling within ~2 km; established cooling water rights from prior coal plant. Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "sa-water-scarce"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 0 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "sa-grid-renewables"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-grid-renewables",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "G. Repower-specific",
+          "verdict": "caution",
+          "reason": "Brownfield/repower advantages may include existing land, roads, workforce, water corridors and switchyards, but remediation, legacy liabilities, permit transferability and demolition interfaces require diligence.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-grid-renewables"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-grid-renewables",
+            "sa-water-scarce"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "sa-land-arid",
+        "sa-grid-renewables",
+        "sa-water-scarce",
+        "sa-pathway-ban",
+        "au-epbc-140a",
+        "au-arpans-10"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "au-sa-eyre-peninsula-spencer-gulf",
+      "siteName": "Eyre Peninsula / Spencer Gulf Coastal Zone (greenfield screen)",
+      "kind": "greenfield",
+      "lat": -32.562,
+      "lng": 137.738,
+      "rank": 3,
+      "verdict": "fail",
+      "frictionScores": {
+        "grid": 0.15,
+        "cooling": 0.15,
+        "permits": 0.4,
+        "community": 0.15,
+        "logistics": 0.25,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 500 ha against a 5 ha reactor envelope; land status: pastoral/Crown land — SA Crown Lands Act; nuclear development statutorily prohibited. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "sa-land-arid"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "fail",
+          "reason": "Federal law is the dominant screen-level blocker: EPBC Act s.140A bars approval for construction/operation of a nuclear power plant and ARPANS Act s.10 bars ARPANSA licensing; the site therefore fails the nuclear licensing entry gate regardless of otherwise attractive physical attributes.",
+          "citationIds": [
+            "au-epbc-140a",
+            "au-arpans-10",
+            "au-sa-prohibition"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-water-scarce",
+            "sa-grid-renewables"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Spencer Gulf seawater — ~2 km to inlet; established coastal zone. Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "sa-water-scarce"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 5 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "sa-grid-renewables"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-water-scarce",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-water-scarce",
+            "sa-grid-renewables"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "sa-land-arid",
+        "sa-water-scarce",
+        "sa-grid-renewables",
+        "sa-pathway-ban",
+        "au-epbc-140a",
+        "au-arpans-10",
+        "au-sa-prohibition"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "au-sa-osborne-industrial-greenfield",
+      "siteName": "Osborne Industrial Precinct / Adelaide (greenfield screen — Port River)",
+      "kind": "greenfield",
+      "lat": -34.81,
+      "lng": 138.49,
+      "rank": 4,
+      "verdict": "fail",
+      "frictionScores": {
+        "grid": 0.15,
+        "cooling": 0.15,
+        "permits": 0.4,
+        "community": 0.75,
+        "logistics": 0.15,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 80 ha against a 5 ha reactor envelope; land status: industrial Crown/state land — defence precincts (HMAS Stirling); complex multi-agency permitting; nuclear banned. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "sa-grid-renewables",
+            "sa-water-scarce"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "fail",
+          "reason": "Federal law is the dominant screen-level blocker: EPBC Act s.140A bars approval for construction/operation of a nuclear power plant and ARPANS Act s.10 bars ARPANSA licensing; the site therefore fails the nuclear licensing entry gate regardless of otherwise attractive physical attributes.",
+          "citationIds": [
+            "au-epbc-140a",
+            "au-arpans-10",
+            "au-sa-prohibition"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "sa-grid-renewables",
+            "sa-water-scarce",
+            "sa-population"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Gulf St Vincent seawater via Port River — existing industrial water intake infrastructure. Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "sa-water-scarce"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 1 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "sa-grid-renewables"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "caution",
+          "reason": "Population density is marked high and hazards include seismic-low, flood-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "sa-population",
+            "sa-grid-renewables",
+            "sa-water-scarce",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "sa-grid-renewables",
+            "sa-water-scarce",
+            "sa-population"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "sa-grid-renewables",
+        "sa-water-scarce",
+        "sa-population",
+        "sa-pathway-ban",
+        "au-epbc-140a",
+        "au-arpans-10",
+        "au-sa-prohibition"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "au-sa-outback-hyper-arid",
+      "siteName": "SA Outback Interior (greenfield — hyper-arid, remote, no grid)",
+      "kind": "greenfield",
+      "lat": -30,
+      "lng": 136,
+      "rank": 5,
+      "verdict": "fail",
+      "frictionScores": {
+        "grid": 0.9,
+        "cooling": 0.25,
+        "permits": 0.4,
+        "community": 0.15,
+        "logistics": 0.7,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 5000 ha against a 5 ha reactor envelope; land status: Crown land / pastoral lease — potential Aboriginal heritage overlay; nuclear banned regardless. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "sa-land-arid"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "fail",
+          "reason": "Federal law is the dominant screen-level blocker: EPBC Act s.140A bars approval for construction/operation of a nuclear power plant and ARPANS Act s.10 bars ARPANSA licensing; the site therefore fails the nuclear licensing entry gate regardless of otherwise attractive physical attributes.",
+          "citationIds": [
+            "au-epbc-140a",
+            "au-arpans-10",
+            "au-sa-prohibition"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-water-scarce",
+            "sa-hazard-stable"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: dry/air-cooled only — no surface water; hyper-arid (< 200 mm/yr rainfall). Water availability is marked none; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "sa-water-scarce"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "fail",
+          "reason": "Grid distance is 500 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-water-scarce"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include heat-extreme, seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-water-scarce",
+            "sa-hazard-stable",
+            "au-epbc-140a"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "caution",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "sa-land-arid",
+            "sa-water-scarce",
+            "sa-hazard-stable"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "sa-land-arid",
+        "sa-water-scarce",
+        "sa-hazard-stable",
+        "sa-pathway-ban",
+        "au-epbc-140a",
+        "au-arpans-10"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "regionSummary": "South Australia has physically attractive sites for the selected reactor, but Australia has a dominant federal statutory prohibition: EPBC Act s.140A prevents approval for nuclear power plant construction/operation [au-epbc-140a], and ARPANS Act s.10 prevents ARPANSA from issuing the required licence [au-arpans-10]. South Australia also adds state-level nuclear-waste/electricity restrictions [au-sa-prohibition]. The screen therefore marks every candidate as fail on Gate B, even where land, cooling, grid or logistics appear favourable.",
+  "nextStudies": [
+    "Confirm whether the project is intended to proceed only under a future law-reform scenario; under current corpus law, stop before detailed site spend.",
+    "Track federal and state statutory reform pathways before ranking physical sites as actionable.",
+    "Preserve candidate records as visualisation examples only, not viable project recommendations."
+  ],
+  "notes": "Screen-level triage only. Rankings use only the supplied corpus/site facts and citation IDs; they do not determine licensability, approvals, investment readiness, landowner consent, final engineering feasibility, or public acceptability."
+}

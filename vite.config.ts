@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.GITHUB_ACTIONS ? '/nuclearer/' : '/',
   server: {
     port: 5173,
     // WSL/Windows mount (/mnt/c) doesn't deliver inotify events — poll so HMR fires.

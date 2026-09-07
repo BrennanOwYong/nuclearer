@@ -1,0 +1,636 @@
+{
+  "country": "USA",
+  "regionId": "US-IL",
+  "reactorId": "westinghouse-ap1000",
+  "pathway": "greenfield",
+  "sites": [
+    {
+      "siteId": "us-il-braidwood",
+      "siteName": "Braidwood Clean Energy Center (Constellation Energy, operating)",
+      "kind": "named",
+      "lat": 41.2434,
+      "lng": -88.2297,
+      "rank": 1,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.05,
+        "cooling": 0.1,
+        "permits": 0.25,
+        "community": 0.15,
+        "logistics": 0.15,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 400 ha against a 6 ha reactor envelope; land status: operating nuclear campus — Constellation Energy private land; brownfield expansion. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "il-land-sites"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for large PWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "us-nrc-10cfr100",
+            "us-nrc-100-21"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "il-water-lakes",
+            "us-nepa"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Braidwood Lake (man-made cooling lake) + Illinois River drainage; CWA §316(b) applies. Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "il-water-lakes",
+            "us-cwa-316b"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 0 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "il-grid-nuclear"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "il-population",
+            "il-hazard-seismic",
+            "us-nrc-10cfr100"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "G. Repower-specific",
+          "verdict": "caution",
+          "reason": "Brownfield/repower advantages may include existing land, roads, workforce, water corridors and switchyards, but remediation, legacy liabilities, permit transferability and demolition interfaces require diligence.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "il-water-lakes"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "il-land-sites",
+        "il-grid-nuclear",
+        "il-water-lakes",
+        "il-hazard-seismic",
+        "il-population",
+        "us-cwa-316b"
+      ],
+      "confidence": "high"
+    },
+    {
+      "siteId": "us-il-clinton",
+      "siteName": "Clinton Clean Energy Center (Constellation Energy, operating BWR)",
+      "kind": "named",
+      "lat": 40.1719,
+      "lng": -88.8339,
+      "rank": 2,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.05,
+        "cooling": 0.1,
+        "permits": 0.25,
+        "community": 0.15,
+        "logistics": 0.15,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 700 ha against a 6 ha reactor envelope; land status: operating nuclear campus — Constellation Energy; existing NRC license; expansion viable. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "il-land-sites"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for large PWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "us-nrc-10cfr100",
+            "us-nrc-100-21"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "il-water-lakes",
+            "us-nepa"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Clinton Lake (man-made cooling reservoir, 11,000 acres); river basin supply. Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "il-water-lakes"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 0 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "il-grid-nuclear"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "il-population",
+            "il-land-sites",
+            "il-grid-nuclear",
+            "us-nrc-10cfr100"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "il-water-lakes"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "il-land-sites",
+        "il-grid-nuclear",
+        "il-water-lakes",
+        "il-population",
+        "us-nrc-10cfr100"
+      ],
+      "confidence": "high"
+    },
+    {
+      "siteId": "us-il-dresden",
+      "siteName": "Dresden Clean Energy Center (Constellation Energy, Morris — Grundy County)",
+      "kind": "named",
+      "lat": 41.3901,
+      "lng": -88.2701,
+      "rank": 3,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.05,
+        "cooling": 0.1,
+        "permits": 0.25,
+        "community": 0.15,
+        "logistics": 0.15,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 250 ha against a 6 ha reactor envelope; land status: operating nuclear campus — Constellation Energy; brownfield SMR expansion candidate. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "il-land-sites"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for large PWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "us-nrc-10cfr100",
+            "us-nrc-100-21"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "il-water-lakes",
+            "us-nepa"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Illinois River + Dresden Island cooling pond; CWA §316(b) intake permitted. Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "il-water-lakes",
+            "us-cwa-316b"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 0 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "il-grid-nuclear"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "il-population",
+            "il-land-sites",
+            "il-grid-nuclear",
+            "us-nrc-10cfr100"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "G. Repower-specific",
+          "verdict": "caution",
+          "reason": "Brownfield/repower advantages may include existing land, roads, workforce, water corridors and switchyards, but remediation, legacy liabilities, permit transferability and demolition interfaces require diligence.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "il-water-lakes"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "il-land-sites",
+        "il-grid-nuclear",
+        "il-water-lakes",
+        "il-population",
+        "us-cwa-316b"
+      ],
+      "confidence": "high"
+    },
+    {
+      "siteId": "us-il-clinton-lake-greenfield",
+      "siteName": "Clinton Lake Rural Zone (greenfield, DeWitt County — expansion corridor)",
+      "kind": "greenfield",
+      "lat": 40.14,
+      "lng": -88.9,
+      "rank": 4,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.15,
+        "cooling": 0.1,
+        "permits": 0.4,
+        "community": 0.15,
+        "logistics": 0.15,
+        "hazards": 0.1
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 600 ha against a 6 ha reactor envelope; land status: agricultural private land — State of Illinois Climate & Equitable Jobs Act supportive; NRC siting study required. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "il-land-sites"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for large PWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "us-nrc-10cfr100",
+            "us-nrc-100-21"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "il-water-lakes",
+            "us-nepa"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Clinton Lake drainage basin; Sangamon River system; tower cooling preferred. Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "il-water-lakes"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 5 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "il-grid-nuclear"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "us-nrc-10cfr100"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "il-water-lakes"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "il-land-sites",
+        "il-grid-nuclear",
+        "il-water-lakes",
+        "il-pathway",
+        "us-nepa"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "siteId": "us-il-quad-cities",
+      "siteName": "Quad Cities Clean Energy Center (Constellation Energy, Cordova IL)",
+      "kind": "named",
+      "lat": 41.7261,
+      "lng": -90.3103,
+      "rank": 5,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.05,
+        "cooling": 0.1,
+        "permits": 0.25,
+        "community": 0.15,
+        "logistics": 0.15,
+        "hazards": 0.5
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 400 ha against a 6 ha reactor envelope; land status: operating nuclear campus — Constellation Energy; large-footprint expansion viable. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "il-land-sites"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for large PWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "us-nrc-10cfr100",
+            "us-nrc-100-21"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "il-water-lakes",
+            "us-nepa"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Mississippi River (once-through + cooling towers); CWA §316(b) intake permitted. Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "il-water-lakes",
+            "us-cwa-316b"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "pass",
+          "reason": "Grid distance is 0 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "il-grid-nuclear"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include seismic-low, flood-moderate. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "il-population",
+            "il-land-sites",
+            "il-grid-nuclear",
+            "us-nrc-10cfr100"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "pass",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "il-water-lakes"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "il-land-sites",
+        "il-grid-nuclear",
+        "il-water-lakes",
+        "il-population",
+        "us-cwa-316b"
+      ],
+      "confidence": "high"
+    },
+    {
+      "siteId": "us-il-western-mississippi-greenfield",
+      "siteName": "Western IL Mississippi River Corridor (greenfield, Henderson/Mercer County)",
+      "kind": "greenfield",
+      "lat": 41,
+      "lng": -90.75,
+      "rank": 6,
+      "verdict": "pass",
+      "frictionScores": {
+        "grid": 0.35,
+        "cooling": 0.1,
+        "permits": 0.4,
+        "community": 0.15,
+        "logistics": 0.35,
+        "hazards": 0.5
+      },
+      "matrix": [
+        {
+          "constraint": "A. Land control & use",
+          "verdict": "pass",
+          "reason": "Available screen footprint is 800 ha against a 6 ha reactor envelope; land status: agricultural private land — state nuclear-supportive policy; large-footprint viable. Tenure, zoning, heritage and indigenous/title constraints still require confirmation.",
+          "citationIds": [
+            "il-land-sites"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "B. Nuclear licensing entry",
+          "verdict": "pass",
+          "reason": "No statutory regional ban is identified in the provided corpus; the site would enter the national nuclear-safety pathway for large PWR facilities, with site suitability and construction/operation licensing still to be demonstrated.",
+          "citationIds": [
+            "us-nrc-10cfr100",
+            "us-nrc-100-21"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "C. Environmental/social",
+          "verdict": "caution",
+          "reason": "A nuclear project would trigger environmental assessment and public consultation; protected-area, habitat, discharge, cultural heritage and social acceptance issues require field-level review.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "il-water-lakes",
+            "us-nepa"
+          ],
+          "dataBasis": "requires-field-study"
+        },
+        {
+          "constraint": "D. Water & cooling rights",
+          "verdict": "pass",
+          "reason": "Cooling source: Mississippi River — once-through or tower; CWA §316(b) intake permitting required. Water availability is marked abundant; the stated reactor cooling pathway is screen-plausible only subject to intake/discharge, thermal and water-rights review.",
+          "citationIds": [
+            "il-water-lakes",
+            "us-cwa-316b"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "E. Grid interconnection",
+          "verdict": "caution",
+          "reason": "Grid distance is 10 km. Existing switchyard/grid proximity lowers friction where present; longer distances or isolated/off-grid contexts require new interconnection/load studies.",
+          "citationIds": [
+            "il-grid-nuclear"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "F. Security & emergency planning",
+          "verdict": "pass",
+          "reason": "Population density is marked low and hazards include flood-moderate, seismic-low. EPZ, exclusion-area control, security standoff and severe-weather/geotechnical assumptions require project-specific analysis.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "us-nrc-10cfr100"
+          ],
+          "dataBasis": "computable"
+        },
+        {
+          "constraint": "H. Transport & logistics",
+          "verdict": "caution",
+          "reason": "Screen logistics are inferred from industrial/port/brownfield status, road/rail/grid proximity and available laydown footprint; oversize transport routes, port handling and construction laydown need route survey.",
+          "citationIds": [
+            "il-land-sites",
+            "il-grid-nuclear",
+            "il-water-lakes"
+          ],
+          "dataBasis": "requires-field-study"
+        }
+      ],
+      "citationIds": [
+        "il-land-sites",
+        "il-grid-nuclear",
+        "il-water-lakes",
+        "il-pathway",
+        "us-cwa-316b",
+        "us-nepa"
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "regionSummary": "Illinois has strong nuclear siting fundamentals: existing nuclear campuses, high-voltage grid, large cooling reservoirs/rivers and a pro-nuclear policy context. U.S. sites still require NRC site review under 10 CFR Part 100 [us-nrc-10cfr100], non-seismic population/exclusion-area analysis [us-nrc-100-21], NEPA review [us-nepa], and cooling-water intake review where applicable [us-cwa-316b].",
+  "nextStudies": [
+    "Title/zoning/land-control diligence and exclusion-area mapping.",
+    "Nuclear site suitability scoping against national regulator criteria.",
+    "NEPA/EIA/ESIA scoping, ecological and cultural-heritage baseline surveys.",
+    "Water-rights, intake/discharge and thermal plume/cooling-tower feasibility study.",
+    "Grid interconnection feasibility, queue position and reinforcement estimate.",
+    "Emergency planning, security standoff and population-centre screening.",
+    "Oversize logistics route and construction laydown survey."
+  ],
+  "notes": "Screen-level triage only. Rankings use only the supplied corpus/site facts and citation IDs; they do not determine licensability, approvals, investment readiness, landowner consent, final engineering feasibility, or public acceptability."
+}

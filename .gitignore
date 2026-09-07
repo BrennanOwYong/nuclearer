@@ -1,0 +1,26 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Dependencies / build
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# Test artifacts
+playwright-report/
+test-results/
+coverage/
+
+# Local tooling / editor
+.claude/
+.DS_Store
+*.log
+
+# Excluded per project owner
+LYSE_research_brief.md
+
+# Worktrees (kept outside the tree, but ignore if nested)
+.worktrees/
